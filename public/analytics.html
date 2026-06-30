@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AE逆向智能助手 - 数据报表</title>
+    <link href="https://fonts.loli.net/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --primary: #6366f1; --primary-hover: #4f46e5; --primary-light: #eef2ff; --bg: #fafbff; --surface: #ffffff; --text: #0f172a; --text-secondary: #64748b; --text-muted: #94a3b8; --border: #e2e8f0; --success: #10b981; --error: #ef4444; --warning: #f59e0b; --radius-md: 12px; --radius-lg: 16px; --shadow-sm: 0 2px 4px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06); --shadow-md: 0 4px 16px rgba(0,0,0,0.06); }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+
+        .header { background: rgba(255,255,255,0.92); backdrop-filter: blur(12px); padding: 0 32px; height: 64px; display: flex; align-items: center; gap: 16px; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; }
+        .header-logo { width: 38px; height: 38px; background: linear-gradient(135deg, var(--primary), #8b5cf6); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; color: white; text-decoration: none; }
+        .header-title { font-size: 15px; font-weight: 600; flex: 1; }
+        .header-link { font-size: 13px; color: var(--primary); text-decoration: none; font-weight: 500; }
+        .header-link:hover { text-decoration: underline; }
+
+        .container { max-width: 1000px; margin: 0 auto; padding: 28px 24px; }
+
+        .tabs { display: flex; gap: 4px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 4px; margin-bottom: 24px; }
+        .tab { flex: 1; padding: 10px; text-align: center; font-size: 13px; font-weight: 500; border-radius: 8px; cursor: pointer; transition: all 0.2s; color: var(--text-secondary); }
+        .tab:hover { color: var(--text); background: var(--bg); }
+        .tab.active { background: var(--primary); color: white; }
+
+        .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 24px; }
+        .stat-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 20px; }
+        .stat-label { font-size: 12px; color: var(--text-muted); font-weight: 500; text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-value { font-size: 28px; font-weight: 700; margin-top: 6px; color: var(--text); }
+        .stat-value.success { color: var(--success); }
+        .stat-value.error { color: var(--error); }
+        .stat-value.warning { color: var(--warning); }
+
+        .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 24px; margin-bottom: 20px; box-shadow: var(--shadow-sm); }
+        .card-title { font-size: 15px; font-weight: 600; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        .card-title span { font-size: 18px; }
+
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th, td { padding: 12px 14px; text-align: left; border-bottom: 1px solid var(--border); }
+        th { font-size: 11px; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; background: var(--bg); }
+        tr:last-child td { border-bottom: none; }
+        tr:hover td { background: var(--primary-light); }
+
+        .count-badge { display: inline-block; background: var(--primary-light); color: var(--primary); padding: 2px 10px; border-radius: 10px; font-weight: 600; font-size: 12px; }
+        .tag-down { background: #fef2f2; color: var(--error); padding: 2px 8px; border-radius: 10px; font-size: 11px; font-weight: 500; }
+        .reason-text { color: var(--text-secondary); font-size: 12px; max-width: 300px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+        .empty { text-align: center; padding: 48px 20px; color: var(--text-muted); }
+        .empty-icon { font-size: 40px; margin-bottom: 12px; }
+        .empty-text { font-size: 14px; }
+
+        .loading { text-align: center; padding: 60px; color: var(--text-muted); font-size: 14px; }
+
+        @media (max-width: 768px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .container { padding: 16px; }
+            .header { padding: 0 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="/landing.html" class="header-logo">📊</a>
+        <div class="header-title">数据报表</div>
+        <button onclick="resetData()" style="background:#ef4444;color:white;border:none;padding:6px 16px;border-radius:8px;font-size:12px;cursor:pointer;margin-left:16px;font-weight:500;">清除所有数据</button>
+        <a class="header-link" href="/">← 返回助手</a>
+    </div>
+    <div class="container">
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('weekly')">📅 本周报告</div>
+            <div class="tab" onclick="switchTab('monthly')">📆 本月报告</div>
+            <div class="tab" onclick="switchTab('frequent')">🔥 高频问题</div>
+        </div>
+        <div id="content"><div class="loading">加载中...</div></div>
+    </div>
+    <script>
+        const content = document.getElementById('content');
+        let currentTab = 'weekly';
+
+        function switchTab(tab) {
+            currentTab = tab;
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            loadData();
+        }
+
+        async function loadData() {
+            content.innerHTML = '<div class="loading">加载中...</div>';
+            try {
+                const endpoint = currentTab === 'frequent' ? '/api/analytics/frequent?top=20' : `/api/analytics/${currentTab}`;
+                const res = await fetch(endpoint);
+                const json = await res.json();
+                if (!json.success) { content.innerHTML = '<div class="empty"><div class="empty-icon">❌</div><div class="empty-text">加载失败</div></div>'; return; }
+                if (currentTab === 'frequent') renderFrequent(json.data);
+                else renderReport(json.data);
+            } catch (err) {
+                content.innerHTML = '<div class="empty"><div class="empty-icon">⚠️</div><div class="empty-text">请求失败，请检查服务是否运行</div></div>';
+            }
+        }
+
+        function renderReport(data) {
+            const { period, summary, topQuestions, negativeFeedbacks, dailyStats } = data;
+            const periodLabel = currentTab === 'weekly' ? '本周' : '本月';
+            let html = `
+                <div class="stats-grid">
+                    <div class="stat-card"><div class="stat-label">总提问数</div><div class="stat-value">${summary.totalQueries}</div></div>
+                    <div class="stat-card"><div class="stat-label">独立问题数</div><div class="stat-value">${summary.uniqueQueries}</div></div>
+                    <div class="stat-card"><div class="stat-label">👍 好评数</div><div class="stat-value success">${summary.positiveCount}</div></div>
+                    <div class="stat-card"><div class="stat-label">👎 待改进</div><div class="stat-value error">${summary.negativeCount}</div></div>
+                </div>
+                <div class="card">
+                    <div class="card-title"><span>📊</span> 满意度：${summary.satisfactionRate}（${period.start} ~ ${period.end}）</div>
+                </div>`;
+
+            // 高频问题
+            html += `<div class="card"><div class="card-title"><span>🔥</span> ${periodLabel}高频问题 TOP10</div>`;
+            if (topQuestions.length === 0) {
+                html += '<div class="empty"><div class="empty-icon">📭</div><div class="empty-text">暂无提问数据</div></div>';
+            } else {
+                html += '<table><thead><tr><th>#</th><th>问题</th><th>次数</th><th>最后提问</th></tr></thead><tbody>';
+                topQuestions.forEach((q, i) => {
+                    html += `<tr><td>${i + 1}</td><td>${q.query}</td><td><span class="count-badge">${q.count}</span></td><td>${q.lastAsked}</td></tr>`;
+                });
+                html += '</tbody></table>';
+            }
+            html += '</div>';
+
+            // 负反馈
+            html += `<div class="card"><div class="card-title"><span>👎</span> ${periodLabel}待改进反馈</div>`;
+            if (negativeFeedbacks.length === 0) {
+                html += '<div class="empty"><div class="empty-icon">🎉</div><div class="empty-text">暂无负面反馈，太棒了！</div></div>';
+            } else {
+                html += '<table><thead><tr><th>日期</th><th>用户问题</th><th>原因</th></tr></thead><tbody>';
+                negativeFeedbacks.forEach(f => {
+                    html += `<tr><td>${f.date}</td><td>${f.query}</td><td class="reason-text">${f.reason || '<span style="color:var(--text-muted)">未填写</span>'}</td></tr>`;
+                });
+                html += '</tbody></table>';
+            }
+            html += '</div>';
+
+            // 每日趋势
+            if (dailyStats.length > 0) {
+                html += `<div class="card"><div class="card-title"><span>📈</span> 每日提问趋势</div>`;
+                html += '<table><thead><tr><th>日期</th><th>提问数</th><th>👍</th><th>👎</th></tr></thead><tbody>';
+                dailyStats.forEach(d => {
+                    html += `<tr><td>${d.date}</td><td>${d.totalQueries}</td><td style="color:var(--success)">${d.positiveCount}</td><td style="color:var(--error)">${d.negativeCount}</td></tr>`;
+                });
+                html += '</tbody></table></div>';
+            }
+
+            content.innerHTML = html;
+        }
+
+        function renderFrequent(data) {
+            let html = '<div class="card"><div class="card-title"><span>🔥</span> 历史高频问题 TOP20</div>';
+            if (data.length === 0) {
+                html += '<div class="empty"><div class="empty-icon">📭</div><div class="empty-text">暂无提问数据，快去使用助手吧！</div></div>';
+            } else {
+                html += '<table><thead><tr><th>#</th><th>问题</th><th>提问次数</th><th>最后提问</th></tr></thead><tbody>';
+                data.forEach((q, i) => {
+                    html += `<tr><td>${i + 1}</td><td>${q.query}</td><td><span class="count-badge">${q.count}</span></td><td>${q.lastAsked}</td></tr>`;
+                });
+                html += '</tbody></table>';
+            }
+            html += '</div>';
+            content.innerHTML = html;
+        }
+
+        function resetData() {
+            if (!confirm('确定要清除所有问答记录和反馈数据吗？此操作不可恢复。')) return;
+            fetch('/api/admin/reset', { method: 'POST' })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('数据已清除，页面将刷新');
+                        location.reload();
+                    } else {
+                        alert('清除失败：' + data.message);
+                    }
+                })
+                .catch(() => alert('请求失败，请检查网络'));
+        }
+
+        loadData();
+    </script>
+</body>
+</html>

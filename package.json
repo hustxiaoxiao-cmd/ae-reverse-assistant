@@ -1,0 +1,54 @@
+{
+  "name": "ae-reverse-assistant",
+  "version": "1.0.0",
+  "description": "AE逆向消退智能助手，基于知识库回答逆向运营相关问题。",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "test": "jest --coverage",
+    "test:watch": "jest --watch",
+    "eval": "ts-node scripts/evaluate.ts",
+    "eval:export": "ts-node scripts/export-entries.ts",
+    "eval:check": "ts-node scripts/check-eval-set.ts",
+    "eval:assign": "python3 scripts/reverse-assign.py"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mammoth": "^1.12.0",
+    "marked": "^18.0.5",
+    "openai": "^4.0.0",
+    "pdf-parse": "^2.2.2",
+    "pino": "^10.3.1",
+    "pino-pretty": "^13.1.3",
+    "ts-node": "^10.4.0",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^16.11.7",
+    "@types/uuid": "^9.0.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.0.0",
+    "typescript": "~5.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yourusername/ae-reverse-assistant.git"
+  },
+  "keywords": [
+    "ae-reverse",
+    "assistant",
+    "knowledge-base",
+    "RAG",
+    "logistics"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yourusername/ae-reverse-assistant/issues"
+  },
+  "homepage": "https://github.com/yourusername/ae-reverse-assistant#readme"
+}

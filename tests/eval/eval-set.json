@@ -1,0 +1,64 @@
+[
+  {
+    "id": "eval-001",
+    "query": "退件质检的拍照要求是什么",
+    "expectedIds": [],
+    "category": "操作规范类",
+    "difficulty": "easy",
+    "notes": "TODO: 跑 export-entries 后，从 catalog 里找出对应章节填入 expectedIds（预期与质检拍照规范、3-5张要求等相关）"
+  },
+  {
+    "id": "eval-002",
+    "query": "大包存储到期后怎么办",
+    "expectedIds": [],
+    "category": "异常处理类",
+    "difficulty": "medium",
+    "notes": "TODO: 涉及销毁流程 + 时效规则，预期 2-3 个 entry"
+  },
+  {
+    "id": "eval-003",
+    "query": "3.5PL退国内的流程是什么",
+    "expectedIds": [],
+    "category": "流程类",
+    "difficulty": "medium",
+    "notes": "TODO: 跨模块（RMS/退货入库/异常），预期 2-4 个 entry"
+  },
+  {
+    "id": "eval-004",
+    "query": "POP香港二售的判定条件",
+    "expectedIds": [],
+    "category": "判定类",
+    "difficulty": "easy",
+    "notes": "TODO: 商品处置-二售章节"
+  },
+  {
+    "id": "eval-005",
+    "query": "BBC和海托二售的区别",
+    "expectedIds": [],
+    "category": "对比类",
+    "difficulty": "hard",
+    "notes": "TODO: 需要同时召回 BBC 和 海托 两个子章节"
+  },
+  {
+    "id": "eval-006",
+    "query": "3.5PL是什么",
+    "expectedIds": [],
+    "category": "术语类",
+    "difficulty": "easy"
+  },
+  {
+    "id": "eval-007",
+    "query": "RMS系统登录失败怎么办",
+    "expectedIds": [],
+    "category": "异常处理类",
+    "difficulty": "easy"
+  },
+  {
+    "id": "eval-008",
+    "query": "退到日本仓的流程",
+    "expectedIds": [],
+    "category": "边界类",
+    "difficulty": "hard",
+    "notes": "知识库无日本仓内容，预期 expectedIds=[]，用于测试'正确返回空'"
+  }
+]

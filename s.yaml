@@ -1,0 +1,33 @@
+edition: 3.0.0
+name: ae-reverse-assistant
+access: default
+
+vars:
+  region: cn-hangzhou
+
+resources:
+  assistant:
+    component: fc3
+    props:
+      region: ${vars.region}
+      functionName: ae-reverse-assistant
+      runtime: nodejs18
+      handler: fc-handler.handler
+      memorySize: 1024
+      cpu: 0.5
+      timeout: 120
+      diskSize: 512
+      code: ./
+      instanceConcurrency: 20
+      logConfig: {}
+      environmentVariables:
+        NODE_ENV: production
+      triggers:
+        - triggerName: httpTrigger
+          triggerType: http
+          triggerConfig:
+            authType: anonymous
+            methods:
+              - GET
+              - POST
+              - OPTIONS

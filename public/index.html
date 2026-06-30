@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AE逆向智能助手</title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/marked/9.1.6/marked.min.js"></script>
+    <script>
+        if (typeof marked === 'undefined') {
+            window.marked = {
+                parse: function(text) {
+                    return text
+                        .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+                        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                        .replace(/`(.*?)`/g, '<code>$1</code>')
+                        .replace(/\n/g, '<br>');
+                },
+                setOptions: function() {}
+            };
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.loli.net" crossorigin>
+    <link href="https://fonts.loli.net/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <style>
+        :root {
+            --primary: #6366f1;
+            --primary-hover: #4f46e5;
+            --primary-light: #eef2ff;
+            --primary-subtle: #f5f3ff;
+            --accent: #8b5cf6;
+            --bg: #fafbff;
+            --bg-secondary: #f1f5f9;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --border: #e2e8f0;
+            --border-light: #f1f5f9;
+            --success: #10b981;
+            --error: #ef4444;
+            --error-bg: #fef2f2;
+            --shadow-xs: 0 1px 2px rgba(0,0,0,0.04);
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.06), 0 2px 4px rgba(0,0,0,0.04);
+            --shadow-lg: 0 12px 40px rgba(0,0,0,0.08);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        /* SVG 图标基类 */
+        .icon { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+        .icon-sm { width: 16px; height: 16px; }
+        .icon-xs { width: 14px; height: 14px; }
+        .avatar-img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: linear-gradient(180deg, #f0f1ff 0%, var(--bg) 30%, var(--bg) 100%); height: 100vh; display: flex; flex-direction: column; color: var(--text); -webkit-font-smoothing: antialiased; }
+
+        /* 暗色模式 */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #171717;
+                --bg-secondary: #262626;
+                --surface: #212121;
+                --text: #ececec;
+                --text-secondary: #a1a1a1;
+                --text-muted: #737373;
+                --border: #333333;
+                --border-light: #2a2a2a;
+                --primary-light: rgba(99,102,241,0.12);
+                --primary-subtle: rgba(99,102,241,0.08);
+                --error-bg: rgba(239,68,68,0.1);
+                --shadow-xs: 0 1px 2px rgba(0,0,0,0.3);
+                --shadow-sm: 0 2px 4px rgba(0,0,0,0.3), 0 1px 2px rgba(0,0,0,0.3);
+                --shadow-md: 0 4px 16px rgba(0,0,0,0.3), 0 2px 4px rgba(0,0,0,0.3);
+                --shadow-lg: 0 12px 40px rgba(0,0,0,0.3);
+            }
+            .header { background: rgba(23,23,23,0.92); }
+            .message-row.user .bubble { background: #2d2d4a; }
+            .bubble pre { background: #1a1a2e; }
+            .input-capsule { background: var(--surface); border-color: var(--border); }
+            body { background: linear-gradient(180deg, #1a1a2e 0%, var(--bg) 30%); }
+            .chat-inner { background: rgba(255,255,255,0.03); }
+        }
+
+        /* 减少动画偏好 */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation-duration: 0.01s !important; transition-duration: 0.01s !important; }
+        }
+
+        .header { background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); padding: 0 32px; height: 56px; display: flex; align-items: center; gap: 12px; border-bottom: none; box-shadow: 0 1px 0 0 var(--border-light); position: sticky; top: 0; z-index: 100; }
+        .header-logo { width: 32px; height: 32px; border-radius: 50%; overflow: hidden; text-decoration: none; flex-shrink: 0; box-shadow: 0 0 0 2px rgba(99,102,241,0.15); }
+        .header-info { flex: 1; }
+        .header-title { font-size: 16px; font-weight: 600; color: var(--text); letter-spacing: -0.3px; }
+        .header-badge { background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); color: #059669; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 600; display: flex; align-items: center; gap: 6px; }
+        .header-badge::before { content: ''; width: 6px; height: 6px; background: #10b981; border-radius: 50%; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+        .new-chat-btn { background: var(--bg-secondary); border: 1px solid var(--border); border-radius: 20px; padding: 5px 12px; font-size: 12px; font-weight: 500; color: var(--text-secondary); cursor: pointer; transition: var(--transition); font-family: inherit; display: flex; align-items: center; gap: 6px; }
+        .new-chat-btn:hover { border-color: var(--primary); color: var(--primary); background: var(--primary-light); }
+        .header-link { font-size: 12px; color: var(--primary); text-decoration: none; font-weight: 500; padding: 5px 12px; border-radius: 20px; border: 1px solid var(--border); transition: var(--transition); display: flex; align-items: center; gap: 6px; }
+        .header-link:hover { background: var(--primary-light); border-color: var(--primary); }
+        .chat-container { flex: 1; overflow-y: auto; padding: 28px 0; scroll-behavior: smooth; }
+        .chat-container::-webkit-scrollbar { width: 6px; }
+        .chat-container::-webkit-scrollbar-track { background: transparent; }
+        .chat-container::-webkit-scrollbar-thumb { background: #d1d5db; border-radius: 10px; }
+        .chat-inner { max-width: 900px; width: 90%; margin: 0 auto; padding: 28px 28px; display: flex; flex-direction: column; gap: 32px; background: rgba(255,255,255,0.5); border-radius: 24px 24px 0 0; min-height: 100%; }
+
+        .message-row { display: flex; gap: 14px; animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .message-row.user { flex-direction: row-reverse; animation: slideInRight 0.2s cubic-bezier(0.16, 1, 0.3, 1); }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideInRight { from { opacity: 0; transform: translateX(8px); } to { opacity: 1; transform: translateX(0); } }
+
+        .avatar { border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 4px; overflow: hidden; }
+        .avatar.bot { width: 32px; height: 32px; background: transparent; box-shadow: none; }
+        .avatar.user-avatar { width: 28px; height: 28px; background: var(--primary); color: white; font-weight: 600; font-size: 12px; border: none; }
+
+        .bubble { max-width: 100%; padding: 8px 0; border-radius: var(--radius-lg); line-height: 1.75; font-size: 14px; word-wrap: break-word; }
+        .message-row.user .bubble { max-width: 70%; margin-left: auto; background: var(--bg-secondary); color: var(--text); border-bottom-right-radius: 4px; box-shadow: none; border: none; }
+        .message-row.assistant .bubble { background: transparent; color: var(--text); border-bottom-left-radius: 4px; box-shadow: none; border: none; }
+
+        .bubble h1, .bubble h2, .bubble h3 { margin: 16px 0 8px; color: var(--text); font-weight: 600; }
+        .bubble h1 { font-size: 16px; } .bubble h2 { font-size: 15px; } .bubble h3 { font-size: 14px; color: var(--primary-hover); }
+        .bubble p { margin: 8px 0; }
+        .bubble ul, .bubble ol { margin: 8px 0; padding-left: 22px; }
+        .bubble li { margin: 5px 0; }
+        .bubble li::marker { color: var(--primary); }
+        .bubble table { border-collapse: collapse; margin: 12px 0; width: 100%; font-size: 13px; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border); }
+        .bubble th, .bubble td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border-light); }
+        .bubble th { background: var(--bg-secondary); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.3px; }
+        .bubble tr:last-child td { border-bottom: none; }
+        .bubble tr:hover td { background: var(--primary-subtle); }
+        .bubble code { background: var(--bg-secondary); padding: 2px 8px; border-radius: 5px; font-size: 13px; font-family: 'SF Mono', monospace; color: var(--primary-hover); border: 1px solid var(--border-light); }
+        .bubble pre { background: #1e293b; color: #e2e8f0; padding: 16px 20px; border-radius: 0 0 var(--radius-md) var(--radius-md); overflow-x: auto; margin: 0; font-size: 13px; }
+        .bubble pre code { background: none; color: inherit; padding: 0; border: none; }
+        
+        /* 代码块工具条 */
+        .code-toolbar { background: #1a1a2e; padding: 6px 16px; border-radius: var(--radius-md) var(--radius-md) 0 0; display: flex; align-items: center; justify-content: space-between; font-size: 12px; color: #94a3b8; }
+        .code-lang { font-family: 'SF Mono', monospace; }
+        .copy-code-btn { background: transparent; border: none; color: #94a3b8; cursor: pointer; display: flex; align-items: center; gap: 4px; font-size: 12px; padding: 2px 8px; border-radius: 4px; transition: var(--transition); }
+        .copy-code-btn:hover { background: rgba(255,255,255,0.1); color: #e2e8f0; }
+        
+        /* 表格滚动容器 */
+        .table-wrapper { overflow-x: auto; margin: 12px 0; }
+        .bubble blockquote { border-left: 3px solid var(--primary); margin: 12px 0; padding: 10px 16px; color: var(--text-secondary); background: var(--primary-light); border-radius: 0 var(--radius-sm) var(--radius-sm) 0; font-size: 13px; }
+        .bubble hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
+        .bubble strong { color: var(--text); font-weight: 600; }
+        .bubble a { color: var(--primary); text-decoration: none; font-weight: 500; }
+        .bubble del { display: none; }
+
+        .message-row.error .bubble { background: var(--error-bg); color: var(--error); border-color: #fecaca; }
+        
+        /* 来源引用区域 - 默认展开 */
+        .sources { margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-light); display: flex; flex-direction: column; gap: 6px; font-size: 12px; }
+        .source-tag { display: inline-flex; align-items: center; gap: 4px; background: var(--primary-light); color: var(--primary); padding: 4px 10px; border-radius: 6px; font-size: 12px; font-weight: 500; }
+        .source-item { margin-bottom: 6px; }
+        .source-header { display: flex; align-items: center; gap: 8px; }
+        .source-score { font-size: 11px; color: var(--text-muted); margin-left: 4px; }
+
+        /* 打字指示器 - 脉冲圆点 */
+        .typing-indicator { display: none; gap: 14px; animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .typing-indicator.active { display: flex; }
+        .typing-bubble { background: var(--surface); border: 1px solid var(--border-light); border-radius: var(--radius-lg); border-bottom-left-radius: 4px; padding: 14px 20px; box-shadow: var(--shadow-xs); display: flex; align-items: center; gap: 10px; }
+        .typing-dots { display: flex; gap: 4px; }
+        .typing-dot { width: 4px; height: 4px; background: var(--primary); border-radius: 50%; animation: typingPulse 1.2s infinite; }
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes typingPulse { 0%, 100% { opacity: 0.35; transform: scale(1); } 50% { opacity: 1; transform: scale(2); } }
+        .typing-text { font-size: 12px; color: var(--text-muted); }
+
+        /* 输入区域 - 浮动胶囊 */
+        .input-area { background: var(--bg); padding: 24px 0; }
+        .input-inner { max-width: 900px; width: 90%; margin: 0 auto; padding: 0 28px; display: flex; gap: 8px; align-items: flex-end; }
+        .input-capsule { flex: 1; background: var(--surface); border: 1.5px solid var(--border); border-radius: 24px; padding: 8px 8px 8px 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.05), 0 1px 3px rgba(0,0,0,0.04); display: flex; align-items: flex-end; transition: var(--transition); }
+        .input-capsule.focused { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(99,102,241,0.1), 0 2px 12px rgba(0,0,0,0.05); }
+        textarea { flex: 1; padding: 10px 0; border: none; resize: none; font-size: 14px; font-family: inherit; outline: none; background: transparent; color: var(--text); line-height: 1.5; min-height: 24px; max-height: 150px; }
+        textarea::placeholder { color: var(--text-muted); }
+        .send-btn { width: 40px; height: 40px; border: none; background: var(--bg-secondary); color: var(--text-muted); border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); flex-shrink: 0; }
+        .send-btn.active { background: var(--primary); color: white; box-shadow: 0 2px 8px rgba(99,102,241,0.3); transform: scale(1.05); }
+        .send-btn:hover { transform: translateY(-1px); }
+        .send-btn:disabled { background: var(--border); cursor: not-allowed; box-shadow: none; transform: none; }
+        .send-btn svg { width: 16px; height: 16px; }
+
+        /* 消息操作栏 - hover 显示 */
+        .feedback-bar { display: flex; gap: 4px; margin-top: 4px; opacity: 0; transition: opacity 0.2s; }
+        .message-row:hover .feedback-bar { opacity: 1; }
+        @media (hover: none) { .message-row .feedback-bar { opacity: 1; } }
+        .feedback-btn { width: 30px; height: 30px; border: none; border-radius: 6px; cursor: pointer; transition: var(--transition); color: var(--text-muted); display: flex; align-items: center; justify-content: center; background: transparent; }
+        .feedback-btn:hover { background: var(--bg-secondary); }
+        .feedback-btn.active-up { color: var(--success); background: #ecfdf5; }
+        .feedback-btn.active-down { color: var(--error); background: var(--error-bg); }
+        .feedback-btn.voted { pointer-events: none; opacity: 0.7; }
+        .feedback-reason { margin-top: 8px; display: flex; gap: 6px; animation: slideUp 0.3s ease; }
+        .feedback-reason input { flex: 1; padding: 6px 12px; border: 1px solid var(--border); border-radius: 8px; font-size: 12px; outline: none; font-family: inherit; }
+        .feedback-reason input:focus { border-color: var(--primary); }
+        .feedback-reason button { padding: 6px 14px; background: var(--primary); color: white; border: none; border-radius: 8px; font-size: 12px; cursor: pointer; white-space: nowrap; }
+        .feedback-reason button:hover { background: var(--primary-hover); }
+
+        /* 建议问题芯片 */
+        .input-suggestions { max-width: 900px; width: 90%; margin: 0 auto; padding: 0 28px 12px; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+        .suggestion-chip { font-size: 12px; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border); padding: 5px 12px; border-radius: 14px; cursor: pointer; transition: var(--transition); white-space: nowrap; animation: fadeIn 0.3s ease; }
+        .suggestion-chip:hover { color: var(--primary); border-color: var(--primary); background: var(--primary-light); }
+        .suggestion-close { width: 20px; height: 20px; border-radius: 50%; cursor: pointer; margin-left: auto; padding: 0; display: flex; align-items: center; justify-content: center; transition: var(--transition); color: var(--text-muted); background: transparent; border: none; }
+        .suggestion-close:hover { color: var(--error); background: var(--error-bg); }
+
+        @media (max-width: 768px) {
+            .header { padding: 0 20px; height: 56px; }
+            .header-badge { display: none; }
+            .header-link { display: none; }
+            .chat-inner, .input-inner { padding: 0 16px; }
+            .bubble { max-width: 85%; padding: 14px 16px; }
+            .quick-questions { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 480px) { .bubble { max-width: 90%; font-size: 13px; } .avatar { width: 30px; height: 30px; } }
+
+        .streaming-cursor { display: inline-block; width: 6px; height: 16px; background: var(--primary); margin-left: 2px; vertical-align: text-bottom; animation: cursorBlink 0.8s step-end infinite; border-radius: 2px; }
+        @keyframes cursorBlink { 50% { opacity: 0; } }
+
+        .quick-questions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 520px; margin: 0 auto; }
+        .quick-q {
+            padding: 16px 20px;
+            background: var(--surface);
+            border: 1.5px solid var(--border);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            text-align: left;
+        }
+        .quick-q:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+        }
+        .quick-q-icon { color: var(--primary); flex-shrink: 0; }
+        .quick-q-label { font-weight: 600; font-size: 13px; color: var(--text); }
+        .quick-q-count { font-size: 10px; color: var(--text-muted); background: var(--bg-secondary); padding: 1px 8px; border-radius: 8px; margin-left: 4px; }
+        .quick-q-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+        .quick-q:nth-child(1) { border-left: 3px solid #6366f1; }
+        .quick-q:nth-child(1) .quick-q-icon { color: #6366f1; }
+        .quick-q:nth-child(2) { border-left: 3px solid #8b5cf6; }
+        .quick-q:nth-child(2) .quick-q-icon { color: #8b5cf6; }
+        .quick-q:nth-child(3) { border-left: 3px solid #06b6d4; }
+        .quick-q:nth-child(3) .quick-q-icon { color: #06b6d4; }
+        .quick-q:nth-child(4) { border-left: 3px solid #f59e0b; }
+        .quick-q:nth-child(4) .quick-q-icon { color: #f59e0b; }
+    </style>
+</head>
+<body>    <div class="header">
+        <a href="/landing.html" class="header-logo"><img src="/star-logo.png" alt="logo" style="width:100%;height:100%;border-radius:50%;object-fit:cover;"></a>
+        <div class="header-info">
+            <div class="header-title">AE逆向智能助手</div>
+        </div>
+        <a class="header-link" href="/analytics.html" target="_blank"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>数据报表</a>
+        <button class="new-chat-btn" onclick="newChat()" title="开始新对话"><svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>新对话</button>
+        <div class="header-badge">运行中</div>
+    </div>
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-inner" id="chatInner">
+            <div class="welcome" id="welcome">
+                <div class="welcome-content">
+                    <div class="welcome-icon" style="width:80px;height:80px;margin:0 auto 16px;position:relative;"><img src="/star-logo.png" alt="AE逆向智能助手" style="width:100%;height:100%;object-fit:contain;"></div>
+                    <h3 style="font-size:20px;margin-bottom:8px;">你好，我是AE逆向智能助手</h3>
+                    <p class="welcome-desc" style="margin-bottom:24px;">我可以回答消退作业、质检标准、出库时效、异常处理等相关问题</p>
+                    <div class="quick-questions" id="quickQuestions">
+                        <div class="quick-q" onclick="askQuestion('海外本地仓消退的标准作业流程是什么')">
+                            <div style="display:flex;align-items:center;gap:6px;">
+                                <svg class="icon icon-sm quick-q-icon" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+                                <span class="quick-q-label">消退作业流程</span>
+                            </div>
+                            <div class="quick-q-desc">海外本地仓消退的标准作业流程是什么</div>
+                        </div>
+                        <div class="quick-q" onclick="askQuestion('质检入库的操作规范是什么')">
+                            <div style="display:flex;align-items:center;gap:6px;">
+                                <svg class="icon icon-sm quick-q-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                                <span class="quick-q-label">质检操作规范</span>
+                            </div>
+                            <div class="quick-q-desc">质检入库的操作规范是什么</div>
+                        </div>
+                        <div class="quick-q" onclick="askQuestion('退件服务的出库时效要求')">
+                            <div style="display:flex;align-items:center;gap:6px;">
+                                <svg class="icon icon-sm quick-q-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                                <span class="quick-q-label">出库时效要求</span>
+                            </div>
+                            <div class="quick-q-desc">退件服务的出库时效要求</div>
+                        </div>
+                        <div class="quick-q" onclick="askQuestion('异常件如何处理')">
+                            <div style="display:flex;align-items:center;gap:6px;">
+                                <svg class="icon icon-sm quick-q-icon" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                                <span class="quick-q-label">异常件处理</span>
+                            </div>
+                            <div class="quick-q-desc">异常件如何处理</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="typing-indicator" id="typingIndicator">
+                <div class="avatar bot"><img src="/star-logo.png" class="avatar-img"></div>
+                <div class="typing-bubble">
+                    <div class="typing-dots"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div>
+                    <div class="typing-text" id="typingText">正在检索知识库...</div>
+                </div>
+            </div>
+        </div>
+    </div>    <div class="input-area">
+        <div class="input-suggestions" id="inputSuggestions"></div>
+        <div class="input-inner">
+            <div class="input-capsule">
+                <textarea id="queryInput" placeholder="输入问题，按 Enter 发送..." rows="1" onkeydown="handleKeyDown(event)"></textarea>
+                <button class="send-btn" id="sendBtn" onclick="sendMessage()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const chatContainer = document.getElementById('chatContainer');
+        const chatInner = document.getElementById('chatInner');
+        const queryInput = document.getElementById('queryInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const typingIndicator = document.getElementById('typingIndicator');
+        const typingText = document.getElementById('typingText');
+        const welcome = document.getElementById('welcome');
+        const inputSuggestions = document.getElementById('inputSuggestions');
+        let typingTimer = null;
+        const chatHistory = []; // 多轮对话历史
+
+        // 默认快捷问题（fallback）
+        const defaultQuickQuestions = [
+            { query: '海外本地仓消退的标准作业流程是什么', label: '消退作业流程', icon: 'package' },
+            { query: '质检入库的操作规范是什么', label: '质检操作规范', icon: 'search' },
+            { query: '退件服务的出库时效要求', label: '出库时效要求', icon: 'clock' },
+            { query: '异常件如何处理', label: '异常件处理', icon: 'alert' },
+        ];
+
+        // 默认联想提示池（fallback）
+        const defaultSuggestionPool = [
+            '消退包裹的质检标准是什么？',
+            '次品如何处理？',
+            '大包存储到期后怎么办？',
+            '商家自提超期如何处理？',
+            '退件的销毁流程是什么？',
+            '不可达包裹怎么操作？',
+            '质检拍照要求有哪些？',
+            '退国内和退香港有什么区别？',
+        ];
+
+        let suggestionPool = [...defaultSuggestionPool];
+
+        // SVG 图标库（Lucide 风格）
+        const ICONS = {
+            package: '<svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>',
+            search: '<svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>',
+            clock: '<svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>',
+            alert: '<svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>',
+            plus: '<svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>',
+            chart: '<svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>',
+            lightbulb: '<svg class="icon icon-xs" viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2v1M12 7a5 5 0 0 0-5 5c0 2 1 3 2 4v2h6v-2c1-1 2-2 2-4a5 5 0 0 0-5-5z"/></svg>',
+            paperclip: '<svg class="icon icon-xs" viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>',
+            fileText: '<svg class="icon icon-xs" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>',
+            copy: '<svg class="icon icon-xs" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>',
+            thumbsUp: '<svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>',
+            thumbsDown: '<svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>',
+            check: '<svg class="icon icon-xs" viewBox="0 0 24 24" style="stroke:#10b981"><polyline points="20 6 9 17 4 12"/></svg>',
+            x: '<svg class="icon icon-xs" viewBox="0 0 24 24" style="stroke:#ef4444"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>',
+        };
+
+        const iconKeys = ['package', 'search', 'clock', 'alert', 'fileText', 'paperclip', 'chart', 'alert'];
+
+        // 从 API 加载高频问题，动态生成快捷卡片和联想池
+        async function loadDynamicSuggestions() {
+            try {
+                const res = await fetch('/api/analytics/suggestions');
+                const data = await res.json();
+                if (data.success && data.suggestions && data.suggestions.length > 0) {
+                    // 更新快捷卡片（取前 4 条）
+                    const quickContainer = document.getElementById('quickQuestions');
+                    const topQuestions = data.suggestions.slice(0, 4);
+                    quickContainer.innerHTML = topQuestions.map((item, idx) => {
+                        const iconKey = iconKeys[idx % iconKeys.length];
+                        const shortLabel = item.query.length > 12 ? item.query.substring(0, 12) + '…' : item.query;
+                        return `<div class="quick-q" onclick="askQuestion('${item.query.replace(/'/g, "\\'")}')">
+                            <div style="display:flex;align-items:center;gap:6px;">
+                                <span class="quick-q-icon">${ICONS[iconKey]}</span>
+                                <span class="quick-q-label">${shortLabel}</span>
+                                <span class="quick-q-count">${item.count}次提问</span>
+                            </div>
+                            <div class="quick-q-desc">${item.query}</div>
+                        </div>`;
+                    }).join('');
+
+                    // 更新联想提示池
+                    suggestionPool = data.suggestions.map(item => item.query);
+                }
+            } catch (e) {
+                // API 失败，保留默认 fallback
+            }
+        }
+        loadDynamicSuggestions();
+
+        function showSuggestions() {
+            const shuffled = suggestionPool.sort(() => 0.5 - Math.random());
+            const picked = shuffled.slice(0, 3);
+            inputSuggestions.innerHTML = '<span style="font-size:11px;color:var(--text-muted);margin-right:4px;">猜你想问</span>' + picked.map(s => `<span class="suggestion-chip" onclick="askQuestion('${s.replace(/'/g, "\\'")}')">${s}</span>`).join('') +
+                `<span class="suggestion-close" onclick="this.parentElement.style.display='none'" title="关闭"><svg class="icon icon-xs" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>`;
+        }
+        showSuggestions();
+
+        queryInput.addEventListener('input', () => { queryInput.style.height = 'auto'; queryInput.style.height = Math.min(queryInput.scrollHeight, 150) + 'px'; });
+        queryInput.addEventListener('focus', () => document.querySelector('.input-capsule').classList.add('focused'));
+        queryInput.addEventListener('blur', () => document.querySelector('.input-capsule').classList.remove('focused'));
+        function handleKeyDown(e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); } }
+        function askQuestion(q) { queryInput.value = q; sendMessage(); }
+        function scrollToBottom() { chatContainer.scrollTop = chatContainer.scrollHeight; }
+
+        function createMessageRow(role) {
+            const row = document.createElement('div');
+            row.className = `message-row ${role}`;
+            const avatar = document.createElement('div');
+            avatar.className = `avatar ${role === 'user' ? 'user-avatar' : 'bot'}`;
+            if (role === 'user') {
+                avatar.textContent = '我';
+            } else {
+                avatar.innerHTML = '<img src="/star-logo.png" class="avatar-img">';
+            }
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            row.appendChild(avatar);
+            row.appendChild(bubble);
+            return { row, bubble };
+        }
+
+        function sanitizeHtml(html) {
+            // 移除 script 标签
+            html = html.replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, '');
+            // 移除 on* 事件属性（如 onclick, onerror 等）
+            html = html.replace(/\s+on\w+\s*=\s*("[^"]*"|'[^']*'|[^\s>]*)/gi, '');
+            // 移除 javascript: 协议的 href
+            html = html.replace(/href\s*=\s*["']?\s*javascript:/gi, 'href="');
+            // 移除 iframe, embed, object 标签
+            html = html.replace(/<(iframe|embed|object)\b[^>]*>.*?<\/\1>/gi, '');
+            html = html.replace(/<(iframe|embed|object)\b[^>]*\/?>/gi, '');
+            return html;
+        }
+
+        function formatContent(text) {
+            if (typeof marked !== 'undefined') {
+                marked.setOptions({ gfm: true, breaks: true });
+                text = text.replace(/~(\d)/g, '\\~$1');
+                let html = sanitizeHtml(marked.parse(text));
+                
+                // 代码块工具条
+                html = html.replace(/<pre><code class="language-(\w+)">([\s\S]*?)<\/code><\/pre>/g, 
+                    '<div class="code-toolbar"><span class="code-lang">$1</span><button class="copy-code-btn" onclick="copyCode(this)"><svg class="icon icon-xs" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>复制</button></div><pre><code class="language-$1">$2</code></pre>');
+                
+                // 表格滚动容器
+                html = html.replace(/<table>([\s\S]*?)<\/table>/g, '<div class="table-wrapper"><table>$1</table></div>');
+                
+                // 链接外链图标
+                html = html.replace(/<a href="([^"]+)">([^<]+)<\/a>/g, 
+                    '<a href="$1" target="_blank" rel="noopener noreferrer">$2<svg class="icon icon-xs" style="display:inline;margin-left:2px;vertical-align:middle" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>');
+                
+                return html;
+            }
+            return sanitizeHtml(text.replace(/\n/g, '<br>').replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'));
+        }
+
+        function copyCode(btn) {
+            const code = btn.parentElement.nextElementSibling.querySelector('code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                btn.innerHTML = '<svg class="icon icon-xs" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>已复制';
+                setTimeout(() => {
+                    btn.innerHTML = '<svg class="icon icon-xs" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>复制';
+                }, 2000);
+            });
+        }
+
+        function showTyping(show) {
+            typingIndicator.classList.toggle('active', show);
+            scrollToBottom();
+        }
+
+        async function sendMessage() {
+            const query = queryInput.value.trim();
+            if (!query) return;
+            if (welcome) welcome.style.display = 'none';
+            
+            // 用户消息
+            const { row: uRow, bubble: uBubble } = createMessageRow('user');
+            uBubble.innerHTML = formatContent(query);
+            chatInner.insertBefore(uRow, typingIndicator);
+            chatHistory.push({ role: 'user', content: query });
+            queryInput.value = ''; queryInput.style.height = 'auto';
+            sendBtn.classList.remove('active');
+            showTyping(true);
+            scrollToBottom();
+
+            // AI 消息
+            const { row: aRow, bubble: aBubble } = createMessageRow('assistant');
+            aBubble.innerHTML = '<span class="streaming-cursor"></span>';
+            chatInner.insertBefore(aRow, typingIndicator);
+            scrollToBottom();
+
+            let fullContent = '', sourcesData = [], streamDone = false, firstChunkReceived = false;
+            const controller = new AbortController();
+            
+            // 停止按钮
+            const stopBtn = document.createElement('button');
+            stopBtn.className = 'send-btn active';
+            stopBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>';
+            stopBtn.onclick = () => controller.abort();
+            sendBtn.style.display = 'none';
+            sendBtn.parentElement.appendChild(stopBtn);
+
+            try {
+                const res = await fetch('/api/query/stream', { 
+                    method: 'POST', 
+                    headers: { 'Content-Type': 'application/json' }, 
+                    body: JSON.stringify({ query, history: chatHistory.slice(0, -1) }),
+                    signal: controller.signal
+                });
+                const reader = res.body.getReader();
+                const decoder = new TextDecoder();
+                let buffer = '';
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    buffer += decoder.decode(value, { stream: true });
+                    const lines = buffer.split('\n\n');
+                    buffer = lines.pop() || '';
+                    for (const line of lines) {
+                        if (!line.startsWith('data: ')) continue;
+                        try {
+                            const d = JSON.parse(line.slice(6));
+                            if (d.type === 'chunk') { 
+                                fullContent += d.content; 
+                                aBubble.innerHTML = formatContent(fullContent) + '<span class="streaming-cursor"></span>'; 
+                                scrollToBottom();
+                                if (!firstChunkReceived) {
+                                    firstChunkReceived = true;
+                                    showTyping(false);
+                                }
+                            }
+                            else if (d.type === 'sources') { 
+                                sourcesData = d.sources;
+                                aBubble.dataset.sources = JSON.stringify(d.sources);
+                                typingText.textContent = '正在生成回答...';
+                                showTyping(false);
+                            }
+                            else if (d.type === 'done') {
+                                streamDone = true; showTyping(false);
+                                aBubble.innerHTML = formatContent(fullContent);
+                                if (sourcesData.length > 0) renderSources(aBubble, sourcesData);
+                                if (fullContent !== '抱歉，知识库中未找到与您问题相关的信息。请尝试换一种方式提问。') addFeedbackBar(aBubble, query, fullContent);
+                                chatHistory.push({ role: 'assistant', content: fullContent });
+                                scrollToBottom();
+                            }
+                            else if (d.type === 'error') { streamDone = true; showTyping(false); aRow.className = 'message-row error'; aBubble.textContent = d.message || '请求失败'; scrollToBottom(); }
+                        } catch(e) {}
+                    }
+                }
+                if (!streamDone && fullContent) {
+                    aBubble.innerHTML = formatContent(fullContent);
+                    if (sourcesData.length > 0) renderSources(aBubble, sourcesData);
+                    addFeedbackBar(aBubble, query, fullContent);
+                    chatHistory.push({ role: 'assistant', content: fullContent });
+                }
+            } catch (err) { 
+                if (err.name === 'AbortError') {
+                    // 用户停止生成
+                    aBubble.innerHTML = formatContent(fullContent) + '<div style="font-size:12px;color:var(--text-muted);margin-top:8px;"> 已停止生成</div>';
+                    if (fullContent) addFeedbackBar(aBubble, query, fullContent);
+                } else {
+                    aRow.className = 'message-row error'; 
+                    aBubble.innerHTML = `
+                        <div style="display:flex;align-items:flex-start;gap:12px;">
+                            <svg class="icon" viewBox="0 0 24 24" style="stroke:var(--error);width:32px;height:32px"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                            <div>
+                                <div style="font-weight:600;margin-bottom:6px;">网络请求失败</div>
+                                <div style="font-size:13px;opacity:0.9;">请检查网络连接或稍后重试</div>
+                                <button onclick="retryLastQuery()" style="margin-top:8px;padding:6px 16px;background:var(--error);color:white;border:none;border-radius:16px;font-size:12px;cursor:pointer;">重试</button>
+                            </div>
+                        </div>
+                    `;
+                    scrollToBottom();
+                }
+            }
+            finally { 
+                showTyping(false); 
+                stopBtn.remove();
+                sendBtn.style.display = 'flex';
+                sendBtn.classList.remove('active');
+                queryInput.focus(); 
+                scrollToBottom(); 
+                saveChatState(); 
+            }
+        }
+
+        function retryLastQuery() {
+            const lastUserMsg = chatHistory[chatHistory.length - 1];
+            if (lastUserMsg && lastUserMsg.role === 'user') {
+                queryInput.value = lastUserMsg.content;
+                sendMessage();
+            }
+        }
+
+        function renderSources(bubble, sources) {
+            if (!sources || sources.length === 0) return;
+            
+            const sourcesHtml = `
+                <div class="sources" style="display:flex;">
+                    ${sources.map(source => {
+                        const title = source.title || source.document || '未知文档';
+                        const score = source.score ? Math.round(source.score * 100) : 0;
+                        return `
+                            <div class="source-item">
+                                <div class="source-header">
+                                    <span class="source-tag">${ICONS.fileText} ${title}</span>
+                                    ${score > 0 ? `<span class="source-score">(${score}%)</span>` : ''}
+                                </div>
+                            </div>
+                        `;
+                    }).join('')}
+                </div>
+            `;
+            bubble.insertAdjacentHTML('beforeend', sourcesHtml);
+        }
+
+        function addFeedbackBar(bubble, queryText, answerText) {
+            const bar = document.createElement('div');
+            bar.className = 'feedback-bar';
+            bar.dataset.query = queryText || '';
+            bar.dataset.answer = answerText || '';
+            bar.innerHTML = `<button class="feedback-btn" onclick="copyAnswer(this)" title="复制">${ICONS.copy}</button><div style="flex:1"></div><button class="feedback-btn" onclick="handleFeedback(this,'up')" title="有帮助">${ICONS.thumbsUp}</button><button class="feedback-btn" onclick="handleFeedback(this,'down')" title="待改进">${ICONS.thumbsDown}</button>`;
+            bubble.appendChild(bar);
+        }
+
+        function copyAnswer(btn) {
+            const bubble = btn.closest('.bubble');
+            const feedbackBar = bubble.querySelector('.feedback-bar');
+            
+            // 克隆 bubble 内容并移除反馈栏
+            const tempDiv = bubble.cloneNode(true);
+            const tempBar = tempDiv.querySelector('.feedback-bar');
+            if (tempBar) tempBar.remove();
+            
+            // 获取纯文本内容
+            const textContent = tempDiv.textContent.trim();
+            
+            navigator.clipboard.writeText(textContent).then(() => {
+                const originalText = btn.innerHTML;
+                btn.innerHTML = ICONS.check + ' 已复制';
+                btn.style.pointerEvents = 'none';
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.pointerEvents = 'auto';
+                }, 2000);
+            }).catch(err => {
+                console.error('复制失败:', err);
+                btn.innerHTML = ICONS.x + ' 复制失败';
+                setTimeout(() => {
+                    btn.innerHTML = ICONS.copy;
+                }, 2000);
+            });
+        }
+
+        function handleFeedback(btn, type) {
+            const bar = btn.parentElement;
+            const query = bar.dataset.query || '';
+            const answer = bar.dataset.answer || '';
+            const buttons = bar.querySelectorAll('.feedback-btn');
+            buttons.forEach(b => { b.classList.remove('active-up', 'active-down'); b.classList.add('voted'); });
+            btn.classList.add(type === 'up' ? 'active-up' : 'active-down');
+            btn.classList.remove('voted');
+
+            if (type === 'up') {
+                fetch('/api/feedback', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type, query, answer }) }).catch(() => {});
+            } else {
+                // 负反馈：弹出原因输入
+                const existing = bar.parentElement.querySelector('.feedback-reason');
+                if (existing) return;
+                const reasonBox = document.createElement('div');
+                reasonBox.className = 'feedback-reason';
+                reasonBox.innerHTML = `<input type="text" placeholder="请简要说明问题（可选）" maxlength="200"><button onclick="submitNegativeFeedback(this)">提交</button>`;
+                reasonBox.dataset.query = query;
+                reasonBox.dataset.answer = answer;
+                bar.after(reasonBox);
+                reasonBox.querySelector('input').focus();
+                reasonBox.querySelector('input').addEventListener('keydown', (e) => { if (e.key === 'Enter') submitNegativeFeedback(reasonBox.querySelector('button')); });
+            }
+        }
+
+        function submitNegativeFeedback(btn) {
+            const reasonBox = btn.parentElement;
+            const reason = reasonBox.querySelector('input').value.trim();
+            const query = reasonBox.dataset.query || '';
+            const answer = reasonBox.dataset.answer || '';
+            fetch('/api/feedback', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type: 'down', query, answer, reason }) }).catch(() => {});
+            reasonBox.innerHTML = `<span style="font-size:12px;color:var(--success);">${ICONS.check} 感谢反馈，我们会持续优化！</span>`;
+        }
+
+        function newChat() {
+            chatHistory.length = 0;
+            const messageRows = chatInner.querySelectorAll('.message-row');
+            messageRows.forEach(row => row.remove());
+            if (welcome) welcome.style.display = '';
+            showSuggestions();
+            queryInput.focus();
+            scrollToBottom();
+            localStorage.removeItem('ae_chat_messages');
+            localStorage.removeItem('ae_chat_history');
+        }
+
+        function saveChatState() {
+            const messages = document.querySelectorAll('.message-row');
+            const data = [];
+            messages.forEach(row => {
+                data.push({
+                    role: row.classList.contains('user') ? 'user' : 'assistant',
+                    html: row.querySelector('.bubble').innerHTML,
+                });
+            });
+            localStorage.setItem('ae_chat_messages', JSON.stringify(data));
+            localStorage.setItem('ae_chat_history', JSON.stringify(chatHistory));
+        }
+
+        function restoreChatState() {
+            const messages = JSON.parse(localStorage.getItem('ae_chat_messages') || '[]');
+            const history = JSON.parse(localStorage.getItem('ae_chat_history') || '[]');
+            if (messages.length === 0) return;
+            
+            if (welcome) welcome.style.display = 'none';
+            messages.forEach(msg => {
+                const { row, bubble } = createMessageRow(msg.role);
+                bubble.innerHTML = msg.html;
+                chatInner.insertBefore(row, typingIndicator);
+            });
+            chatHistory.push(...history);
+            scrollToBottom();
+        }
+
+        restoreChatState();
+        queryInput.focus();
+    </script>
+</body>
+</html>
