@@ -1,2 +1,0 @@
-- [项目管理甘特图生成 Skill](skill_gantt_chart.md) — 提供项目表格截图自动生成多功能HTML甘特图的skill，含规范和案例
-- [不要向用户解释业务概念](feedback_no_business_explanation.md) — 用户是业务人员，不需要AI解释消退、销毁等业务概念的区别

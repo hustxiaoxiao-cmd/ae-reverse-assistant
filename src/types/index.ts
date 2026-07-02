@@ -33,17 +33,3 @@ export interface EmbeddingResult {
     embedding: number[];
     dimensions: number;
 }
-
-export interface FeedbackRecord {
-    query: string;
-    answer: string;
-    type: string;
-    reason?: string;
-    timestamp: string;
-}
-
-export interface QueryRecord {
-    query: string;
-    answer: string;
-    timestamp: string;
-}

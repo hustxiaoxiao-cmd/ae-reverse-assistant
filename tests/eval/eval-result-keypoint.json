@@ -1,0 +1,4294 @@
+{
+  "timestamp": "2026/07/01 16:20",
+  "method": "key-point-hit-rate",
+  "total": 100,
+  "overallHitRate": 90.7,
+  "fullHitCount": 78,
+  "partialCount": 22,
+  "wrongCount": 5,
+  "totalWrongPoints": 6,
+  "keyPointStats": {
+    "total": 625,
+    "hits": 567,
+    "misses": 52,
+    "wrongs": 6
+  },
+  "chapterStats": [
+    {
+      "chapter": "一、退件服务概况（Q1–Q5）",
+      "count": 5,
+      "fullHit": 4,
+      "hitRate": 96.55172413793103,
+      "wrongs": 0
+    },
+    {
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "count": 20,
+      "fullHit": 10,
+      "hitRate": 76.71232876712328,
+      "wrongs": 3
+    },
+    {
+      "chapter": "三、退货入库（Q26–Q33）",
+      "count": 8,
+      "fullHit": 6,
+      "hitRate": 89.47368421052632,
+      "wrongs": 0
+    },
+    {
+      "chapter": "四、质检作业（Q34–Q53）",
+      "count": 20,
+      "fullHit": 18,
+      "hitRate": 96.1038961038961,
+      "wrongs": 1
+    },
+    {
+      "chapter": "五、商品处置（Q54–Q81）",
+      "count": 28,
+      "fullHit": 21,
+      "hitRate": 93.01310043668121,
+      "wrongs": 2
+    },
+    {
+      "chapter": "六、出库与配送（Q82–Q94）",
+      "count": 13,
+      "fullHit": 13,
+      "hitRate": 100.0,
+      "wrongs": 0
+    },
+    {
+      "chapter": "七、异常处理方案（Q95–Q100）",
+      "count": 6,
+      "fullHit": 6,
+      "hitRate": 100.0,
+      "wrongs": 0
+    }
+  ],
+  "results": [
+    {
+      "id": 1,
+      "chapter": "一、退件服务概况（Q1–Q5）",
+      "hitRate": 100,
+      "hitCount": 8,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 8,
+      "keyPoints": [
+        {
+          "point": "共5大服务环节",
+          "status": "hit",
+          "detail": "RAG明确列出5大环节"
+        },
+        {
+          "point": "第1环节：收货入库",
+          "status": "hit",
+          "detail": "RAG列出收货入库"
+        },
+        {
+          "point": "收货入库含免质检销毁和质检入库两种方式",
+          "status": "hit",
+          "detail": "RAG提到免质检销毁、质检入库两种模式"
+        },
+        {
+          "point": "第2环节：质检",
+          "status": "hit",
+          "detail": "RAG列出质检环节"
+        },
+        {
+          "point": "第3环节：装箱",
+          "status": "hit",
+          "detail": "RAG列出装箱环节"
+        },
+        {
+          "point": "装箱含小包打包和大包组包",
+          "status": "hit",
+          "detail": "RAG提到小包打包和组包(大包)"
+        },
+        {
+          "point": "第4环节：出库",
+          "status": "hit",
+          "detail": "RAG列出出库环节"
+        },
+        {
+          "point": "第5环节：交航",
+          "status": "hit",
+          "detail": "RAG列出交航环节"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "chapter": "一、退件服务概况（Q1–Q5）",
+      "hitRate": 100,
+      "hitCount": 5,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 5,
+      "keyPoints": [
+        {
+          "point": "入库扫描后判断包裹是否异常件",
+          "status": "hit",
+          "detail": "RAG提到A(Abnormal)为异常件判断"
+        },
+        {
+          "point": "策略为销毁的包裹直接完成免质检销毁",
+          "status": "hit",
+          "detail": "RAG: D(Destroy)→免质检销毁"
+        },
+        {
+          "point": "策略为质检的包裹进入质检环节",
+          "status": "hit",
+          "detail": "RAG: Q(QC)→进入质检环节"
+        },
+        {
+          "point": "质检包裹包括退国内、退香港、自提三种流向",
+          "status": "hit",
+          "detail": "RAG表格Q行提到退国内/退香港/自提"
+        },
+        {
+          "point": "正常包裹需进一步判断出库策略决定路径",
+          "status": "hit",
+          "detail": "RAG描述系统根据指令码自动匹配路径"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "chapter": "一、退件服务概况（Q1–Q5）",
+      "hitRate": 86,
+      "hitCount": 6,
+      "missCount": 1,
+      "wrongCount": 0,
+      "totalKeyPoints": 7,
+      "keyPoints": [
+        {
+          "point": "质检流程包含开箱人工目视",
+          "status": "hit",
+          "detail": "RAG: 开包验货检查外包装及商品状态"
+        },
+        {
+          "point": "质检流程包含人工质检（参照质检标准）",
+          "status": "hit",
+          "detail": "RAG: 异常识别与判责归类"
+        },
+        {
+          "point": "拍照需拍摄外包装、销售包装、内物",
+          "status": "hit",
+          "detail": "RAG列出外包装、销售包装、内物整体照"
+        },
+        {
+          "point": "拍照共3-5张",
+          "status": "hit",
+          "detail": "RAG: 基础照片3–5张"
+        },
+        {
+          "point": "按SKU维度提交质检结果",
+          "status": "hit",
+          "detail": "RAG: 系统录入与判责提交"
+        },
+        {
+          "point": "质检流程起始为\"开始质检\"",
+          "status": "hit",
+          "detail": "RAG: 接收退回包裹作为起始步骤"
+        },
+        {
+          "point": "到仓后2个工作日内完成质检",
+          "status": "miss",
+          "detail": "RAG未提及2个工作日时限"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "chapter": "一、退件服务概况（Q1–Q5）",
+      "hitRate": 100,
+      "hitCount": 7,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 7,
+      "keyPoints": [
+        {
+          "point": "残品（不含自提）生成销毁LP",
+          "status": "hit",
+          "detail": "RAG: 残品生成销毁LP"
+        },
+        {
+          "point": "残品进行销毁处理",
+          "status": "hit",
+          "detail": "RAG: 进入本地仓逆向销毁流程"
+        },
+        {
+          "point": "良品进入出库流程",
+          "status": "hit",
+          "detail": "RAG: 良品进入出库流程"
+        },
+        {
+          "point": "良品按策略走退国内",
+          "status": "hit",
+          "detail": "RAG: 退国内良品流程详述"
+        },
+        {
+          "point": "良品按策略走退香港",
+          "status": "hit",
+          "detail": "RAG: 退香港良品流程详述"
+        },
+        {
+          "point": "良品按策略走本地自提",
+          "status": "hit",
+          "detail": "RAG: 本地自提流程详述"
+        },
+        {
+          "point": "本地自提特殊：良品和残品均可由商家自提",
+          "status": "hit",
+          "detail": "RAG: 本地自提（含良+残）"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "chapter": "一、退件服务概况（Q1–Q5）",
+      "hitRate": 100,
+      "hitCount": 2,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 2,
+      "keyPoints": [
+        {
+          "point": "超7天未提货",
+          "status": "hit",
+          "detail": "RAG: 组包完成后7天内未提货触发销毁"
+        },
+        {
+          "point": "系统执行销毁处理",
+          "status": "hit",
+          "detail": "RAG: 系统自动转为超时销毁状态"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 100,
+      "hitCount": 6,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 6,
+      "keyPoints": [
+        {
+          "point": "共5步",
+          "status": "hit",
+          "detail": "RAG列出5步"
+        },
+        {
+          "point": "第1步Login（登录）",
+          "status": "hit",
+          "detail": "RAG: Login（登录）"
+        },
+        {
+          "point": "第2步Inbound（入库）",
+          "status": "hit",
+          "detail": "RAG: Inbound（入库）"
+        },
+        {
+          "point": "第3步Inspection（质检）",
+          "status": "hit",
+          "detail": "RAG: Inspection（质检）"
+        },
+        {
+          "point": "第4步Consolidation（组大包）",
+          "status": "hit",
+          "detail": "RAG: Consolidation（组大包）"
+        },
+        {
+          "point": "第5步Outbound（出库）",
+          "status": "hit",
+          "detail": "RAG: Outbound（出库）"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 100,
+      "hitCount": 3,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 3,
+      "keyPoints": [
+        {
+          "point": "Inbound之后需经过Inspection（质检）",
+          "status": "hit",
+          "detail": "RAG: Inspection（质检）"
+        },
+        {
+          "point": "Inbound之后需经过Consolidation（组大包）",
+          "status": "hit",
+          "detail": "RAG: Consolidation（组大包）"
+        },
+        {
+          "point": "最后才能进行Outbound（出库）",
+          "status": "hit",
+          "detail": "RAG: Inbound→Inspection→Consolidation→Outbound"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 100,
+      "hitCount": 4,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 4,
+      "keyPoints": [
+        {
+          "point": "APP登录需要勾选两个协议",
+          "status": "hit",
+          "detail": "RAG: 必须勾选两个协议方可完成登录"
+        },
+        {
+          "point": "系统仅支持英文和中文两种语言",
+          "status": "hit",
+          "detail": "RAG: 支持中文和英文"
+        },
+        {
+          "point": "可在APP右上角设置→language切换",
+          "status": "hit",
+          "detail": "RAG: 右上角设置→language→选择目标语言"
+        },
+        {
+          "point": "可在PC端登录页面选择语言",
+          "status": "hit",
+          "detail": "RAG: PC端语言选择在登录页面直接切换"
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 100,
+      "hitCount": 6,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 6,
+      "keyPoints": [
+        {
+          "point": "账号7天未操作会自动退出",
+          "status": "hit",
+          "detail": "RAG: 账号会自动退出登录"
+        },
+        {
+          "point": "再登录时需重新输入账号密码",
+          "status": "hit",
+          "detail": "RAG: 再次登录时需重新输入账号密码"
+        },
+        {
+          "point": "APP端更换路径：右上角设置→logout→登录页→新账号",
+          "status": "hit",
+          "detail": "RAG: 右上角→设置→Logout→录入新账号密码"
+        },
+        {
+          "point": "PC端更换路径：左下角设置→logout→登录页→新账号",
+          "status": "hit",
+          "detail": "RAG: 左下角→设置→Logout→录入新账号密码"
+        },
+        {
+          "point": "登录失败先检查账号密码是否正确",
+          "status": "hit",
+          "detail": "RAG: 检查账号密码是否正确"
+        },
+        {
+          "point": "仍失败请联系仓运营重置密码",
+          "status": "hit",
+          "detail": "RAG: 联系仓运营重置密码"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 88,
+      "hitCount": 7,
+      "missCount": 0,
+      "wrongCount": 1,
+      "totalKeyPoints": 8,
+      "keyPoints": [
+        {
+          "point": "入库仅支持APP",
+          "status": "wrong",
+          "detail": "RAG称APP和PC端均参与入库操作"
+        },
+        {
+          "point": "Q(QC)→需被质检",
+          "status": "hit",
+          "detail": "RAG: Q(QC)→进入质检环节"
+        },
+        {
+          "point": "C(Cancelled)→包裹预报已被取消",
+          "status": "hit",
+          "detail": "RAG: C(Cancelled)→预报已被取消"
+        },
+        {
+          "point": "D(Destroy)→所有商品无需质检可直接销毁",
+          "status": "hit",
+          "detail": "RAG: D→无需质检直接销毁"
+        },
+        {
+          "point": "A(Abnormal)→无预报包裹",
+          "status": "hit",
+          "detail": "RAG: A→无预报包裹"
+        },
+        {
+          "point": "不能使用LP条码扫描",
+          "status": "hit",
+          "detail": "RAG: 不可以使用LP条码"
+        },
+        {
+          "point": "仅支持国际运单号",
+          "status": "hit",
+          "detail": "RAG: 必须使用物流单号扫描"
+        },
+        {
+          "point": "用LP条码扫描会出现ABNORMAL报错",
+          "status": "hit",
+          "detail": "RAG: 使用LP条码会导致ABNORMAL报错"
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 64,
+      "hitCount": 7,
+      "missCount": 4,
+      "wrongCount": 0,
+      "totalKeyPoints": 11,
+      "keyPoints": [
+        {
+          "point": "重复扫描系统提示Already Inbounded",
+          "status": "hit",
+          "detail": "RAG: 提示Already Inbounded"
+        },
+        {
+          "point": "在APP操作历史列表查询核对",
+          "status": "hit",
+          "detail": "RAG: 在APP端操作历史列表查询"
+        },
+        {
+          "point": "操作历史列表数据保留120天",
+          "status": "miss",
+          "detail": "RAG未提及120天数据保留期限"
+        },
+        {
+          "point": "按入库时间由近至远展示",
+          "status": "miss",
+          "detail": "RAG未提及排序方式"
+        },
+        {
+          "point": "一致则跳过，不一致存入异常件区域登记为重复面单",
+          "status": "hit",
+          "detail": "RAG: 一致跳过，不一致登记other-重复面单"
+        },
+        {
+          "point": "无主件确认扫描运单号后点击Confirm跳过",
+          "status": "miss",
+          "detail": "RAG未提及点击Confirm跳过的操作"
+        },
+        {
+          "point": "无主件实物存放异常件区域",
+          "status": "hit",
+          "detail": "RAG: 存放至异常件区域"
+        },
+        {
+          "point": "取消件包裹物流单已被取消，单独存放",
+          "status": "hit",
+          "detail": "RAG: 取消件单独存放"
+        },
+        {
+          "point": "已扫描无预报→有预报后重新入库",
+          "status": "hit",
+          "detail": "RAG: 预报补发后7日内重新扫描入库"
+        },
+        {
+          "point": "确认无预报则登记为异常件等待进一步处理",
+          "status": "hit",
+          "detail": "RAG: 维持原无主件处置路径"
+        },
+        {
+          "point": "重复扫描不一致时登记为重复面单",
+          "status": "miss",
+          "detail": "RAG提到登记但术语略有差异"
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 15,
+      "hitCount": 2,
+      "missCount": 11,
+      "wrongCount": 0,
+      "totalKeyPoints": 13,
+      "keyPoints": [
+        {
+          "point": "4步流程第1步：扫描面单",
+          "status": "miss",
+          "detail": "RAG推导步骤非标准4步，未提扫描面单"
+        },
+        {
+          "point": "4步流程第2步：拍照（外包装+所有商品照片）",
+          "status": "miss",
+          "detail": "RAG未将拍照作为独立步骤"
+        },
+        {
+          "point": "4步流程第3步：质检判定（核实品质数量，点击正品GOOD）",
+          "status": "miss",
+          "detail": "RAG未提及正品GOOD操作"
+        },
+        {
+          "point": "4步流程第4步：确认提交（检查所有SKU完成质检）",
+          "status": "miss",
+          "detail": "RAG提到提交但非标准表述"
+        },
+        {
+          "point": "出库策略：Self-Pickup（本地自提）",
+          "status": "miss",
+          "detail": "RAG称知识库未提及7种出库策略"
+        },
+        {
+          "point": "出库策略：CN（退国内）",
+          "status": "miss",
+          "detail": "RAG称知识库未提及"
+        },
+        {
+          "point": "出库策略：HK（退香港）",
+          "status": "miss",
+          "detail": "RAG称知识库未提及"
+        },
+        {
+          "point": "出库策略：DESTROY NOW（本地销毁）",
+          "status": "miss",
+          "detail": "RAG称知识库未提及"
+        },
+        {
+          "point": "出库策略：Destroy After（延期销毁）",
+          "status": "miss",
+          "detail": "RAG称知识库未提及"
+        },
+        {
+          "point": "出库策略：质检后二售",
+          "status": "miss",
+          "detail": "RAG称知识库未提及"
+        },
+        {
+          "point": "出库策略：清货计划—自提",
+          "status": "miss",
+          "detail": "RAG称知识库未提及"
+        },
+        {
+          "point": "质检结果未提交前可返回修改",
+          "status": "hit",
+          "detail": "RAG: 仅允许在提交前返回修改"
+        },
+        {
+          "point": "提交后不支持修改",
+          "status": "hit",
+          "detail": "RAG: 质检结果提交后不支持修改"
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 0,
+      "hitCount": 0,
+      "missCount": 6,
+      "wrongCount": 0,
+      "totalKeyPoints": 6,
+      "keyPoints": [
+        {
+          "point": "少货：确认包裹内无遗留商品",
+          "status": "miss",
+          "detail": "RAG未提及确认无遗留商品步骤"
+        },
+        {
+          "point": "少货：在系统丢失(lost)点击+增加缺失数量",
+          "status": "miss",
+          "detail": "RAG仅描述判定标准未描述操作"
+        },
+        {
+          "point": "少货：点击提交submit",
+          "status": "miss",
+          "detail": "RAG未提及提交操作步骤"
+        },
+        {
+          "point": "破损：点击+增加数量",
+          "status": "miss",
+          "detail": "RAG仅描述判定标准未描述点击+"
+        },
+        {
+          "point": "破损：对破损部位加拍1~2张照片",
+          "status": "miss",
+          "detail": "RAG未提及对破损加拍照片要求"
+        },
+        {
+          "point": "货不对板：点击+增加数量",
+          "status": "miss",
+          "detail": "RAG仅描述判定标准未描述点击+"
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 57,
+      "hitCount": 8,
+      "missCount": 5,
+      "wrongCount": 1,
+      "totalKeyPoints": 14,
+      "keyPoints": [
+        {
+          "point": "漏液：点击+增加数量",
+          "status": "hit",
+          "detail": "RAG: 在RMS系统点击+录入漏液数量"
+        },
+        {
+          "point": "漏液：对漏液部位加拍1~2张照片",
+          "status": "hit",
+          "detail": "RAG: 对漏液部位加拍1–2张照片"
+        },
+        {
+          "point": "零件打开：多零件组装类商品内物零件超50件",
+          "status": "hit",
+          "detail": "RAG: 内物零件＞50件"
+        },
+        {
+          "point": "零件打开：点击+增加数量",
+          "status": "hit",
+          "detail": "RAG: 在RMS系统点击+录入数量"
+        },
+        {
+          "point": "零件打开：加拍1张照片",
+          "status": "hit",
+          "detail": "RAG: 对该SKU加拍1张照片"
+        },
+        {
+          "point": "粉膏类内物打开：点击+增加数量",
+          "status": "hit",
+          "detail": "RAG: 在RMS系统点击+录入数量"
+        },
+        {
+          "point": "粉膏类内物打开：对打开痕迹加拍1~2张照片",
+          "status": "hit",
+          "detail": "RAG: 对开封痕迹加拍1–2张照片"
+        },
+        {
+          "point": "商品变形：点击+增加数量",
+          "status": "hit",
+          "detail": "RAG: 在RMS系统点击+录入数量"
+        },
+        {
+          "point": "商品变形：对变形痕迹加拍1~2张照片",
+          "status": "wrong",
+          "detail": "RAG称知识库未明确要求拍照"
+        },
+        {
+          "point": "多件：系统显示剩余0但仍有商品时预报商品按良残放入对应框",
+          "status": "miss",
+          "detail": "RAG未描述多件的具体操作流程"
+        },
+        {
+          "point": "多件：非预报商品参考黑码处理",
+          "status": "miss",
+          "detail": "RAG未提及非预报商品参考黑码"
+        },
+        {
+          "point": "黑码：在左侧SKU预报图片处点击+补充商品照片并增加数量",
+          "status": "miss",
+          "detail": "RAG称知识库中未找到黑码信息"
+        },
+        {
+          "point": "黑码：点击提交submit",
+          "status": "miss",
+          "detail": "RAG称知识库中未找到黑码信息"
+        },
+        {
+          "point": "黑码：合并到本地销毁策略中完成销毁",
+          "status": "miss",
+          "detail": "RAG称知识库中未找到黑码信息"
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 91,
+      "hitCount": 10,
+      "missCount": 1,
+      "wrongCount": 0,
+      "totalKeyPoints": 11,
+      "keyPoints": [
+        {
+          "point": "共7种出库策略",
+          "status": "hit",
+          "detail": "RAG: 共7种出库策略"
+        },
+        {
+          "point": "Self-Pickup（本地自提）",
+          "status": "hit",
+          "detail": "RAG列出Self-Pickup"
+        },
+        {
+          "point": "CN（退国内）",
+          "status": "hit",
+          "detail": "RAG列出CN"
+        },
+        {
+          "point": "HK（退香港）",
+          "status": "hit",
+          "detail": "RAG列出HK"
+        },
+        {
+          "point": "DESTROY NOW（本地销毁）",
+          "status": "hit",
+          "detail": "RAG列出DESTORY NOW（拼写略异）"
+        },
+        {
+          "point": "Destroy After（指定日期销毁）",
+          "status": "hit",
+          "detail": "RAG列出Destroy After"
+        },
+        {
+          "point": "质检后二售",
+          "status": "hit",
+          "detail": "RAG列出质检后二售"
+        },
+        {
+          "point": "清货计划—自提",
+          "status": "hit",
+          "detail": "RAG列出清货计划—自提"
+        },
+        {
+          "point": "同一策略下带电和不带电须分别打包",
+          "status": "hit",
+          "detail": "RAG: 带电和不带电包裹须分别打包"
+        },
+        {
+          "point": "出库面单需覆盖入库面单进行粘贴",
+          "status": "hit",
+          "detail": "RAG: 出库面单必须覆盖入库面单"
+        },
+        {
+          "point": "黑码商品合并到本地销毁策略中完成销毁",
+          "status": "miss",
+          "detail": "RAG在Q15回答中未提及黑码商品"
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 100,
+      "hitCount": 6,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 6,
+      "keyPoints": [
+        {
+          "point": "不支持手动输入重量数据",
+          "status": "hit",
+          "detail": "RAG: 不支持手动输入重量"
+        },
+        {
+          "point": "称重由硬件设备直接采集结果",
+          "status": "hit",
+          "detail": "RAG: 仅支持由硬件设备自动采集"
+        },
+        {
+          "point": "打印面单支持批量打印",
+          "status": "hit",
+          "detail": "RAG: 支持批量打印"
+        },
+        {
+          "point": "打印面单支持重复打印",
+          "status": "hit",
+          "detail": "RAG: 支持重复打印"
+        },
+        {
+          "point": "需注意准确粘贴",
+          "status": "hit",
+          "detail": "RAG: 面单准确粘贴，避免错贴漏贴"
+        },
+        {
+          "point": "包裹打包完成后产生的异常不可逆",
+          "status": "hit",
+          "detail": "RAG: 包裹打包完成后产生的异常不可逆"
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 83,
+      "hitCount": 5,
+      "missCount": 1,
+      "wrongCount": 0,
+      "totalKeyPoints": 6,
+      "keyPoints": [
+        {
+          "point": "组包仅支持APP",
+          "status": "hit",
+          "detail": "RAG: 仅支持APP端操作"
+        },
+        {
+          "point": "不同流向的小包不能混装",
+          "status": "hit",
+          "detail": "RAG: 不同流向小包不能混装"
+        },
+        {
+          "point": "普通件和带电件（普电）不能混装",
+          "status": "hit",
+          "detail": "RAG: 普电SKU必须分开打包"
+        },
+        {
+          "point": "普通大包面单右下角无字母标识",
+          "status": "hit",
+          "detail": "RAG: 无字母标识=普通大包"
+        },
+        {
+          "point": "带电大包面单右下角带字母B标识",
+          "status": "hit",
+          "detail": "RAG: 右下角带字母B=带电大包"
+        },
+        {
+          "point": "面单需覆盖原入库面单避免出库运输时扫到入库信息",
+          "status": "miss",
+          "detail": "RAG在Q17回答中未提及面单覆盖要求"
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 100,
+      "hitCount": 14,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 14,
+      "keyPoints": [
+        {
+          "point": "已预约小包组同一大包",
+          "status": "hit",
+          "detail": "RAG: 已预约小包与未预约分别组包"
+        },
+        {
+          "point": "未预约小包组同一大包",
+          "status": "hit",
+          "detail": "RAG: 未预约小包单独组包"
+        },
+        {
+          "point": "已预约和未预约不可混包",
+          "status": "hit",
+          "detail": "RAG: 严禁混包"
+        },
+        {
+          "point": "同一商家不同预约日期不支持组同一大包",
+          "status": "hit",
+          "detail": "RAG: 不同预约日期小包不可组入同一大包"
+        },
+        {
+          "point": "商家取消预约则整个预约单被取消并阻断组包",
+          "status": "hit",
+          "detail": "RAG: 取消预约→预约单取消→组包阻断"
+        },
+        {
+          "point": "重复扫描：同一包裹则跳过",
+          "status": "hit",
+          "detail": "RAG: 若为同一包裹则跳过"
+        },
+        {
+          "point": "重复扫描：不同包裹需拆包检查",
+          "status": "hit",
+          "detail": "RAG: 不同包裹需拆包核查"
+        },
+        {
+          "point": "扫描失败：检查小包是否放入错误大包",
+          "status": "hit",
+          "detail": "RAG: 检查小包是否误入错误大包"
+        },
+        {
+          "point": "扫描失败：取出切换正确包号重新扫描",
+          "status": "hit",
+          "detail": "RAG: 取出并切换至正确大包重新扫描"
+        },
+        {
+          "point": "普电混合报错(different package type)：检查小包属性",
+          "status": "hit",
+          "detail": "RAG: 带电/不带电SKU混装"
+        },
+        {
+          "point": "普电混合报错：根据明细打标取出后重新组包",
+          "status": "hit",
+          "detail": "RAG: 打标并取出错误小包重新组包"
+        },
+        {
+          "point": "缓存机制：可离开页面暂停组包数据会留存",
+          "status": "hit",
+          "detail": "RAG: 可离开页面，系统自动留存数据"
+        },
+        {
+          "point": "组包结果未提交前可返回修改",
+          "status": "hit",
+          "detail": "RAG: 未提交前可返回修改"
+        },
+        {
+          "point": "提交后不支持修改",
+          "status": "hit",
+          "detail": "RAG: 提交后不支持任何修改"
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 86,
+      "hitCount": 6,
+      "missCount": 0,
+      "wrongCount": 1,
+      "totalKeyPoints": 7,
+      "keyPoints": [
+        {
+          "point": "出库结果：SP（自提）",
+          "status": "hit",
+          "detail": "RAG: SP=自提"
+        },
+        {
+          "point": "出库结果：CN（退国内）",
+          "status": "hit",
+          "detail": "RAG: CN=退国内"
+        },
+        {
+          "point": "出库结果：HK（退香港）",
+          "status": "hit",
+          "detail": "RAG: HK=退香港"
+        },
+        {
+          "point": "出库结果：质检后二售（第4种结果）",
+          "status": "wrong",
+          "detail": "RAG明确否认第4种结果存在"
+        },
+        {
+          "point": "自提超期：当前时间-组包时间>7天",
+          "status": "hit",
+          "detail": "RAG: 当前时间−组包时间>7天"
+        },
+        {
+          "point": "大包自动转为超时未自提销毁状态",
+          "status": "hit",
+          "detail": "RAG: 自动转为超时未自提销毁状态"
+        },
+        {
+          "point": "可在台账异常页签中查看自提超时订单",
+          "status": "hit",
+          "detail": "RAG: 在台账异常页签中查询"
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 100,
+      "hitCount": 5,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 5,
+      "keyPoints": [
+        {
+          "point": "大包中的小包无称重重量则大包无法出库",
+          "status": "hit",
+          "detail": "RAG: 大包无法完成出库"
+        },
+        {
+          "point": "补称重流程：拆包",
+          "status": "hit",
+          "detail": "RAG: 拆包"
+        },
+        {
+          "point": "补称重流程：补称未称重小包",
+          "status": "hit",
+          "detail": "RAG: 补称未称重的小包"
+        },
+        {
+          "point": "补称重流程：无需重打大包",
+          "status": "hit",
+          "detail": "RAG: 无需重打大包面单"
+        },
+        {
+          "point": "补称重流程：重新组包出库",
+          "status": "hit",
+          "detail": "RAG: 重新组包后方可出库"
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 100,
+      "hitCount": 7,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 7,
+      "keyPoints": [
+        {
+          "point": "台账仅支持PC端",
+          "status": "hit",
+          "detail": "RAG明确说只支持PC端"
+        },
+        {
+          "point": "主页签①Inbound Package（入库小包）",
+          "status": "hit",
+          "detail": "RAG正确列出Inbound Package"
+        },
+        {
+          "point": "Inbound子页签：Incoming/Inbound/Inspected",
+          "status": "hit",
+          "detail": "三个子页签完全匹配"
+        },
+        {
+          "point": "主页签②Outbound Package（出库小包）",
+          "status": "hit",
+          "detail": "RAG正确列出Outbound Package"
+        },
+        {
+          "point": "Outbound子页签：To-be-packed/To-be-consolidated/To-be-outbound/Outbound/Destroy",
+          "status": "hit",
+          "detail": "五个子页签完全匹配"
+        },
+        {
+          "point": "主页签③Outbound Bigbag（出库大包），无子页签",
+          "status": "hit",
+          "detail": "RAG正确列出且标注无子页签"
+        },
+        {
+          "point": "主页签④Abnormal（异常），无子页签",
+          "status": "hit",
+          "detail": "RAG正确列出且标注无子页签"
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 50,
+      "hitCount": 1,
+      "missCount": 1,
+      "wrongCount": 0,
+      "totalKeyPoints": 2,
+      "keyPoints": [
+        {
+          "point": "Abnormal页签涵盖Package（小包）和Bigbag（大包）两个维度",
+          "status": "hit",
+          "detail": "RAG提到Package/Bigbag维度"
+        },
+        {
+          "point": "取消订单列表可以在台账中查询导出",
+          "status": "miss",
+          "detail": "RAG称知识库未找到相关信息"
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 60,
+      "hitCount": 3,
+      "missCount": 2,
+      "wrongCount": 0,
+      "totalKeyPoints": 5,
+      "keyPoints": [
+        {
+          "point": "配置地址为https://os.gpn.cainiao-inc.com/refund/rms/cutconfig",
+          "status": "hit",
+          "detail": "URL完全匹配"
+        },
+        {
+          "point": "Step1：进入运单号截断页面点击新建",
+          "status": "hit",
+          "detail": "RAG描述一致"
+        },
+        {
+          "point": "Step2：根据仓code配置截断运单号保留位数（前后包含）",
+          "status": "hit",
+          "detail": "RAG描述一致"
+        },
+        {
+          "point": "配置人为@王佳亮(嘉昂)",
+          "status": "miss",
+          "detail": "RAG未提及配置人"
+        },
+        {
+          "point": "配置人为@蒲艺匀(昭筠)",
+          "status": "miss",
+          "detail": "RAG未提及配置人"
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 100,
+      "hitCount": 8,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 8,
+      "keyPoints": [
+        {
+          "point": "配置完成后可以对配置结果进行测试",
+          "status": "hit",
+          "detail": "RAG明确提到支持测试"
+        },
+        {
+          "point": "打开WET配置界面选择电子秤型号和串口",
+          "status": "hit",
+          "detail": "RAG描述了WET配置界面"
+        },
+        {
+          "point": "频率默认9600",
+          "status": "hit",
+          "detail": "RAG提到通信频率默认9600"
+        },
+        {
+          "point": "找不到对应型号选万能模式",
+          "status": "hit",
+          "detail": "RAG提到万能模式"
+        },
+        {
+          "point": "COM port找不到时通过Windows串口助手检查，重启WET和浏览器",
+          "status": "hit",
+          "detail": "RAG描述了串口助手和重启步骤"
+        },
+        {
+          "point": "使用Chrome浏览器且版本号须大于96",
+          "status": "hit",
+          "detail": "RAG提到Chrome ≥ v96"
+        },
+        {
+          "point": "某些软件会屏蔽WS协议或端口导致无法建立链接",
+          "status": "hit",
+          "detail": "RAG提到安全软件屏蔽WS"
+        },
+        {
+          "point": "页面长时间未使用或电脑休眠后需刷新RMS页面重新建立链接",
+          "status": "hit",
+          "detail": "RAG提到刷新页面重连"
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "chapter": "二、RMS系统操作指南（Q6–Q25）",
+      "hitRate": 100,
+      "hitCount": 4,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 4,
+      "keyPoints": [
+        {
+          "point": "条码打印机名称对应rmsbarcode",
+          "status": "hit",
+          "detail": "RAG正确给出rmsbarcode"
+        },
+        {
+          "point": "面单打印机名称对应rmswaybill",
+          "status": "hit",
+          "detail": "RAG正确给出rmswaybill"
+        },
+        {
+          "point": "只连一台打印机时名称可以随便取",
+          "status": "hit",
+          "detail": "RAG说名称可随意设置"
+        },
+        {
+          "point": "名称匹配不正确时打印任务发送给系统默认打印机",
+          "status": "hit",
+          "detail": "RAG描述一致"
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "chapter": "三、退货入库（Q26–Q33）",
+      "hitRate": 100,
+      "hitCount": 3,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 3,
+      "keyPoints": [
+        {
+          "point": "适用于本地POP业务",
+          "status": "hit",
+          "detail": "RAG列出本地POP业务"
+        },
+        {
+          "point": "适用于海外托管退平台仓业务",
+          "status": "hit",
+          "detail": "RAG列出海外托管和退平台仓"
+        },
+        {
+          "point": "不包含跨境业务",
+          "status": "hit",
+          "detail": "RAG明确排除跨境业务"
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "chapter": "三、退货入库（Q26–Q33）",
+      "hitRate": 100,
+      "hitCount": 8,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 8,
+      "keyPoints": [
+        {
+          "point": "流程起点：退货物流单创建成功",
+          "status": "hit",
+          "detail": "RAG第1步匹配"
+        },
+        {
+          "point": "用户预约",
+          "status": "hit",
+          "detail": "RAG第2步匹配"
+        },
+        {
+          "point": "预约成功",
+          "status": "hit",
+          "detail": "RAG第3步匹配"
+        },
+        {
+          "point": "快递员取件",
+          "status": "hit",
+          "detail": "RAG描述快递员上门取件"
+        },
+        {
+          "point": "制作面单成功",
+          "status": "hit",
+          "detail": "RAG描述制作成功环节"
+        },
+        {
+          "point": "门口回传ASCAN",
+          "status": "hit",
+          "detail": "RAG提到门口回传ASCAN"
+        },
+        {
+          "point": "DSCAN",
+          "status": "hit",
+          "detail": "RAG提到DSCAN"
+        },
+        {
+          "point": "预约失败可改约/制作失败可改约或不退货/未取件转自寄",
+          "status": "hit",
+          "detail": "三种异常情况均覆盖"
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "chapter": "三、退货入库（Q26–Q33）",
+      "hitRate": 100,
+      "hitCount": 6,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 6,
+      "keyPoints": [
+        {
+          "point": "GLS重量限制0-30KG",
+          "status": "hit",
+          "detail": "RAG给出0-30KG"
+        },
+        {
+          "point": "DHL重量限制0-31KG",
+          "status": "hit",
+          "detail": "RAG给出0-31KG"
+        },
+        {
+          "point": "GLS尺寸限制三边和不超过150cm",
+          "status": "hit",
+          "detail": "RAG给出三边和≤150cm"
+        },
+        {
+          "point": "DHL尺寸限制120×60×60cm",
+          "status": "hit",
+          "detail": "RAG给出120×60×60cm"
+        },
+        {
+          "point": "GLS截单时间16点前约当天、16点后约次日",
+          "status": "hit",
+          "detail": "RAG描述16:00前后规则"
+        },
+        {
+          "point": "DHL截单时间22:00前约次日、22:00后约后天",
+          "status": "hit",
+          "detail": "RAG描述22:00前后规则"
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "chapter": "三、退货入库（Q26–Q33）",
+      "hitRate": 100,
+      "hitCount": 5,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 5,
+      "keyPoints": [
+        {
+          "point": "组合①退货创建成功+预约成功→退货成功、预约成功",
+          "status": "hit",
+          "detail": "RAG第一种组合匹配"
+        },
+        {
+          "point": "组合②退货创建成功+预约取消→用户可改约且物流单号不变",
+          "status": "hit",
+          "detail": "RAG提到改约和单号不变"
+        },
+        {
+          "point": "组合③退货取消+预约成功→此组合不存在",
+          "status": "hit",
+          "detail": "RAG明确说此组合不存在"
+        },
+        {
+          "point": "组合④退货取消+预约取消→前台允许取消退货，物流对CP不取消，CP不履约",
+          "status": "hit",
+          "detail": "RAG描述CP不取消和不履约"
+        },
+        {
+          "point": "组合③中物流对CP退货不取消、预约取消、CP不履约",
+          "status": "hit",
+          "detail": "RAG说明CP不履约的原因"
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "chapter": "三、退货入库（Q26–Q33）",
+      "hitRate": 50,
+      "hitCount": 1,
+      "missCount": 1,
+      "wrongCount": 0,
+      "totalKeyPoints": 2,
+      "keyPoints": [
+        {
+          "point": "揽收段（接单/预约成功-Ascan揽收）考核标准为5CD 90%",
+          "status": "hit",
+          "detail": "RAG正确给出5CD 90%"
+        },
+        {
+          "point": "配送段（ASCAN-DSCAN）考核标准为5CD 92%",
+          "status": "miss",
+          "detail": "RAG完全未提及配送段SLA"
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "chapter": "三、退货入库（Q26–Q33）",
+      "hitRate": 100,
+      "hitCount": 5,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 5,
+      "keyPoints": [
+        {
+          "point": "预约未取消，快递员会继续上门",
+          "status": "hit",
+          "detail": "RAG说快递员照常上门"
+        },
+        {
+          "point": "邮局也会正常接收该包裹",
+          "status": "hit",
+          "detail": "RAG说邮局正常接收"
+        },
+        {
+          "point": "费用同时收取上门取件费和配送费",
+          "status": "hit",
+          "detail": "RAG明确上门费+配送费均收"
+        },
+        {
+          "point": "CP消息通知揽收失败（非轨迹回传，无揽收失败节点）",
+          "status": "hit",
+          "detail": "RAG说非真实轨迹回传"
+        },
+        {
+          "point": "邮局在面单模式收货后回传ASCAN",
+          "status": "hit",
+          "detail": "RAG描述面单模式回传ASCAN"
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "chapter": "三、退货入库（Q26–Q33）",
+      "hitRate": 40,
+      "hitCount": 2,
+      "missCount": 3,
+      "wrongCount": 0,
+      "totalKeyPoints": 5,
+      "keyPoints": [
+        {
+          "point": "DHL不支持退货取消",
+          "status": "hit",
+          "detail": "RAG表达物流侧不取消退货"
+        },
+        {
+          "point": "前台允许用户取消退货，但物流对CP不取消",
+          "status": "hit",
+          "detail": "RAG描述前台≠物流取消"
+        },
+        {
+          "point": "上下游单独增加解绑逻辑",
+          "status": "miss",
+          "detail": "RAG未提及解绑逻辑"
+        },
+        {
+          "point": "ASCAN后不允许取消",
+          "status": "miss",
+          "detail": "RAG未提及ASCAN后限制"
+        },
+        {
+          "point": "CP侧预约和接单为独立接口",
+          "status": "miss",
+          "detail": "RAG未提及独立接口"
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "chapter": "三、退货入库（Q26–Q33）",
+      "hitRate": 100,
+      "hitCount": 4,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 4,
+      "keyPoints": [
+        {
+          "point": "扫描面单后RMS系统自动识别退货订单及预处置策略",
+          "status": "hit",
+          "detail": "RAG描述扫描自动匹配机制"
+        },
+        {
+          "point": "支持识别【质检后二售】订单类型",
+          "status": "hit",
+          "detail": "RAG列出质检后二售"
+        },
+        {
+          "point": "支持识别【退商家仓】订单类型",
+          "status": "hit",
+          "detail": "RAG列出退商家仓"
+        },
+        {
+          "point": "支持识别【退国内】订单类型",
+          "status": "hit",
+          "detail": "RAG列出退国内"
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 3,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 3,
+      "keyPoints": [
+        {
+          "point": "需在2CD（48H）内完成商品质检",
+          "status": "hit",
+          "detail": "RAG明确2CD即48小时"
+        },
+        {
+          "point": "需进行系统质检结果回传",
+          "status": "hit",
+          "detail": "RAG提到系统结果回传"
+        },
+        {
+          "point": "回传失败订单需手动补推直至成功",
+          "status": "hit",
+          "detail": "RAG说人工补推直至成功"
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 4,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 4,
+      "keyPoints": [
+        {
+          "point": "质检照片需保留120个自然日",
+          "status": "hit",
+          "detail": "RAG给出120个自然日"
+        },
+        {
+          "point": "照片需清晰完整",
+          "status": "hit",
+          "detail": "RAG提到清晰完整"
+        },
+        {
+          "point": "像素要求至少800×600",
+          "status": "hit",
+          "detail": "RAG给出像素不低于800×600"
+        },
+        {
+          "point": "光线明亮、无遮挡",
+          "status": "hit",
+          "detail": "RAG提到光线明亮无遮挡"
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 4,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 4,
+      "keyPoints": [
+        {
+          "point": "物流外包装有国际物流单号/菜鸟逆向面单，用于物流运输流转",
+          "status": "hit",
+          "detail": "RAG描述完全一致"
+        },
+        {
+          "point": "包括盒型、箱型和包装袋",
+          "status": "hit",
+          "detail": "RAG列出盒型箱型包装袋"
+        },
+        {
+          "point": "质检时关注穿透性破损（可见破洞）",
+          "status": "hit",
+          "detail": "RAG提到穿透性破损"
+        },
+        {
+          "point": "质检时关注划痕或损伤痕迹",
+          "status": "hit",
+          "detail": "RAG提到划痕或损伤痕迹"
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 6,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 6,
+      "keyPoints": [
+        {
+          "point": "A-普货-服饰类",
+          "status": "hit",
+          "detail": "RAG列出A-普货-服饰类"
+        },
+        {
+          "point": "服饰类涵盖衣服鞋帽包",
+          "status": "hit",
+          "detail": "RAG列出衣服鞋帽包"
+        },
+        {
+          "point": "A-普货-非服饰类",
+          "status": "hit",
+          "detail": "RAG列出A-普货-非服饰类"
+        },
+        {
+          "point": "非服饰类涵盖美妆日化",
+          "status": "hit",
+          "detail": "RAG列出美妆日化"
+        },
+        {
+          "point": "C-特货即带电带磁带芯带屏幕",
+          "status": "hit",
+          "detail": "RAG列出带电带磁带芯带屏幕"
+        },
+        {
+          "point": "C-特货涵盖3C类产品",
+          "status": "hit",
+          "detail": "RAG列出3C类产品"
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 7,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 7,
+      "keyPoints": [
+        {
+          "point": "需拍摄外包装（含面单信息）",
+          "status": "hit",
+          "detail": "RAG第1类匹配"
+        },
+        {
+          "point": "需拍摄销售包装",
+          "status": "hit",
+          "detail": "RAG第2类匹配"
+        },
+        {
+          "point": "需拍摄内物（涵盖所有内物）",
+          "status": "hit",
+          "detail": "RAG第3类匹配"
+        },
+        {
+          "point": "需拍摄异常补充照片",
+          "status": "hit",
+          "detail": "RAG第4类匹配"
+        },
+        {
+          "point": "手机类需拍摄IMEI信息",
+          "status": "hit",
+          "detail": "RAG第5类匹配"
+        },
+        {
+          "point": "基础照片3-5张",
+          "status": "hit",
+          "detail": "RAG给出3-5张基础照"
+        },
+        {
+          "point": "异常时对应部位加拍1-2张",
+          "status": "hit",
+          "detail": "RAG给出+1-2张/类异常"
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 7,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 7,
+      "keyPoints": [
+        {
+          "point": "变形（SHAPE CHANGED）",
+          "status": "hit",
+          "detail": "RAG列出变形SHAPE CHANGED"
+        },
+        {
+          "point": "货不对板（APPEARANCE MISMATCH）",
+          "status": "hit",
+          "detail": "RAG列出货不对板"
+        },
+        {
+          "point": "多/少件（QUANTITY MISMATCH）",
+          "status": "hit",
+          "detail": "RAG列出多/少件"
+        },
+        {
+          "point": "漏液（LEAK LIQUID）",
+          "status": "hit",
+          "detail": "RAG列出漏液"
+        },
+        {
+          "point": "破损（DAMAGED）",
+          "status": "hit",
+          "detail": "RAG列出破损"
+        },
+        {
+          "point": "零件开封（MULTIPLE PARTS 50+ UNPACKED）",
+          "status": "hit",
+          "detail": "RAG列出零件开封"
+        },
+        {
+          "point": "开封（POWDER/LIQUID UNPACKED）",
+          "status": "hit",
+          "detail": "RAG列出开封POWDER/LIQUID"
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 4,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 4,
+      "keyPoints": [
+        {
+          "point": "适用于多零件组装类商品",
+          "status": "hit",
+          "detail": "RAG明确多零件组装类商品"
+        },
+        {
+          "point": "内物零件超过50件",
+          "status": "hit",
+          "detail": "RAG提到零件总数超过50件"
+        },
+        {
+          "point": "包括零件(螺丝/钉)、配件、拼图、乐高、装饰材料等",
+          "status": "hit",
+          "detail": "RAG列出乐高拼图螺丝等"
+        },
+        {
+          "point": "因无法复原和检验数量，有打开情况即判残",
+          "status": "hit",
+          "detail": "RAG描述无法核验即判残"
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 4,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 4,
+      "keyPoints": [
+        {
+          "point": "物流包装破损、销售包装完好、内物完好时判定为良品",
+          "status": "hit",
+          "detail": "RAG明确给出良品结论"
+        },
+        {
+          "point": "A-普货良残判定核心在于内物状态",
+          "status": "hit",
+          "detail": "RAG表格条件含内物完好"
+        },
+        {
+          "point": "只要内物完好（含单货一致），无论物流包装和销售包装是否破损均判良品",
+          "status": "hit",
+          "detail": "RAG列出具体组合判良品"
+        },
+        {
+          "point": "内物破损或单货不一致时判残次",
+          "status": "hit",
+          "detail": "RAG明确提及含单货一致条件"
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 67,
+      "hitCount": 4,
+      "missCount": 1,
+      "wrongCount": 1,
+      "totalKeyPoints": 6,
+      "keyPoints": [
+        {
+          "point": "C-特货与A-普货不同：物流包装完好+销售包装破损时需进一步看内物状态才能判定",
+          "status": "wrong",
+          "detail": "RAG称内物状态不参与判定"
+        },
+        {
+          "point": "情形1：物流包装完好+销售包装完好→良品",
+          "status": "hit",
+          "detail": "RAG情形1完全匹配"
+        },
+        {
+          "point": "情形2：物流包装破损+销售包装完好→良品",
+          "status": "hit",
+          "detail": "RAG情形2完全匹配"
+        },
+        {
+          "point": "情形3：物流包装完好+销售包装破损+内物破损/单货不一致→残次",
+          "status": "hit",
+          "detail": "RAG情形3给出残次结果"
+        },
+        {
+          "point": "情形4：物流包装破损+销售包装破损+内物完好→良品",
+          "status": "hit",
+          "detail": "RAG情形4给出良品结果"
+        },
+        {
+          "point": "C-特货共有4种判定情形",
+          "status": "miss",
+          "detail": "RAG列出4种但未体现内物条件"
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 2,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 2,
+      "keyPoints": [
+        {
+          "point": "判定为残品",
+          "status": "hit",
+          "detail": "RAG明确判定结果为残"
+        },
+        {
+          "point": "仓仅需按订单信息核对质检，同步对商家规则透传清晰以减少客诉进线",
+          "status": "hit",
+          "detail": "RAG提及核对及透传规则"
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 2,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 2,
+      "keyPoints": [
+        {
+          "point": "判定为良品",
+          "status": "hit",
+          "detail": "RAG明确判定结果为良"
+        },
+        {
+          "point": "需依据快照及新订单信息（含品类、款式等）判断，不能仅凭商品名称字段判定",
+          "status": "hit",
+          "detail": "RAG提及结合订单快照综合判断"
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 2,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 2,
+      "keyPoints": [
+        {
+          "point": "判定2件良",
+          "status": "hit",
+          "detail": "RAG明确2件均判良品"
+        },
+        {
+          "point": "SKU图片一致时直接按良入，因SKU一致规格差异无质量问题，无法判断哪个件入残哪个良",
+          "status": "hit",
+          "detail": "RAG解释规格差异不构成质量问题"
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 3,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 3,
+      "keyPoints": [
+        {
+          "point": "以包裹维度的质检完成结果已提交，无法修改/重推",
+          "status": "hit",
+          "detail": "RAG说明首包裹已完成入库"
+        },
+        {
+          "point": "第二个包裹在入仓时标记为异常件登记",
+          "status": "hit",
+          "detail": "RAG明确登记other-重复面单"
+        },
+        {
+          "point": "可直接完成销毁，不到质检环节",
+          "status": "hit",
+          "detail": "RAG明确销毁且不质检"
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 2,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 2,
+      "keyPoints": [
+        {
+          "point": "仓仅需判断实物是否破损：实物破损判残（次品原因破损），实物非破损判良",
+          "status": "hit",
+          "detail": "RAG完整覆盖判断逻辑"
+        },
+        {
+          "point": "需要填写《无质检图案例登记》表",
+          "status": "hit",
+          "detail": "RAG提及需按规范填表登记"
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 3,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 3,
+      "keyPoints": [
+        {
+          "point": "若零件包均属于未开封状态，仓库质检时除体感明显不足外，判良品",
+          "status": "hit",
+          "detail": "RAG明确未开封无体感异常判良"
+        },
+        {
+          "point": "体感明显不足时判次品",
+          "status": "hit",
+          "detail": "RAG明确体感明显不足判次品"
+        },
+        {
+          "point": "仓库无法核对实际零件数量时的判定规则",
+          "status": "hit",
+          "detail": "RAG覆盖无法核对场景判定"
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 3,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 3,
+      "keyPoints": [
+        {
+          "point": "零件数>50件时，质检结果回传parts unpacked",
+          "status": "hit",
+          "detail": "RAG明确回传parts unpacked"
+        },
+        {
+          "point": "无法判断多少包零件的判残",
+          "status": "hit",
+          "detail": "RAG明确判残"
+        },
+        {
+          "point": "体感明显不足的也标记次品",
+          "status": "hit",
+          "detail": "RAG覆盖已开封一律判残逻辑"
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 4,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 4,
+      "keyPoints": [
+        {
+          "point": "商品包装盒有塑封→判正品",
+          "status": "hit",
+          "detail": "RAG有塑封判正品完全匹配"
+        },
+        {
+          "point": "有商品盒（盒子可拆卸）玩偶无异常→判正品",
+          "status": "hit",
+          "detail": "RAG可拆卸型判正品匹配"
+        },
+        {
+          "point": "有商品盒（盒子一次性拆开无法复原）玩偶无异常→判次品",
+          "status": "hit",
+          "detail": "RAG无法复原型判次品匹配"
+        },
+        {
+          "point": "有商品盒（商品有塑料袋）塑料袋被打开，玩偶无异常→判次品",
+          "status": "hit",
+          "detail": "RAG塑料袋打开判次品匹配"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 3,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 3,
+      "keyPoints": [
+        {
+          "point": "公仔类零部件掉落不考虑判残",
+          "status": "hit",
+          "detail": "RAG明确零部件掉落不自动判残"
+        },
+        {
+          "point": "接口处有明显胶痕且配件脱落的判残",
+          "status": "hit",
+          "detail": "RAG明确胶痕+脱落同时满足判残"
+        },
+        {
+          "point": "无胶水痕迹则不考虑残品",
+          "status": "hit",
+          "detail": "RAG明确无胶痕为良品"
+        }
+      ]
+    },
+    {
+      "id": 52,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 100,
+      "hitCount": 3,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 3,
+      "keyPoints": [
+        {
+          "point": "GIFT为非必需退回品，可以缺失，GIFT缺失时质检判良品（通用规则，不仅限于汽摩配类）",
+          "status": "hit",
+          "detail": "RAG完整覆盖GIFT判良且为通用规则"
+        },
+        {
+          "point": "非GIFT的配件缺失时，质检判残",
+          "status": "hit",
+          "detail": "RAG明确非GIFT缺失判残"
+        },
+        {
+          "point": "非GIFT配件缺失次品原因为破损（damage）",
+          "status": "hit",
+          "detail": "RAG明确次品原因为破损damage"
+        }
+      ]
+    },
+    {
+      "id": 53,
+      "chapter": "四、质检作业（Q34–Q53）",
+      "hitRate": 80,
+      "hitCount": 4,
+      "missCount": 1,
+      "wrongCount": 0,
+      "totalKeyPoints": 5,
+      "keyPoints": [
+        {
+          "point": "质检及时率低于90%部分，每超1单按1美金进行扣罚",
+          "status": "hit",
+          "detail": "RAG明确每超1单扣罚1美元"
+        },
+        {
+          "point": "质检不规范或超时按实际损失价值赔偿，以速卖通平台实际成交价为标准",
+          "status": "miss",
+          "detail": "RAG未提及实际损失和成交价标准"
+        },
+        {
+          "point": "赔付最高不超过800 RMB/订单",
+          "status": "hit",
+          "detail": "RAG明确800RMB/订单上限"
+        },
+        {
+          "point": "投诉发起时效为120天",
+          "status": "hit",
+          "detail": "RAG明确投诉时效120天"
+        },
+        {
+          "point": "举证时效为72小时",
+          "status": "hit",
+          "detail": "RAG明确举证时效72小时"
+        }
+      ]
+    },
+    {
+      "id": 54,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 2,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 2,
+      "keyPoints": [
+        {
+          "point": "本地二售包含全托BBC二售",
+          "status": "hit",
+          "detail": "RAG明确列出全托BBC二售"
+        },
+        {
+          "point": "本地二售包含海托二售",
+          "status": "hit",
+          "detail": "RAG明确列出海托二售"
+        }
+      ]
+    },
+    {
+      "id": 55,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 12,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 12,
+      "keyPoints": [
+        {
+          "point": "平台退货仓入库扫描",
+          "status": "hit",
+          "detail": "RAG步骤1入库扫描匹配"
+        },
+        {
+          "point": "本地平台退货仓质检",
+          "status": "hit",
+          "detail": "RAG步骤2人工质检匹配"
+        },
+        {
+          "point": "判定为良品",
+          "status": "hit",
+          "detail": "RAG明确判定为良品"
+        },
+        {
+          "point": "小包打包+小包称重",
+          "status": "hit",
+          "detail": "RAG步骤3打包称重匹配"
+        },
+        {
+          "point": "平台给配CP下单",
+          "status": "hit",
+          "detail": "RAG步骤4向CP下单匹配"
+        },
+        {
+          "point": "配CP接单并返回面单",
+          "status": "hit",
+          "detail": "RAG明确CP接单返回面单"
+        },
+        {
+          "point": "若配CP拒单则转为清货自提流程",
+          "status": "hit",
+          "detail": "RAG明确CP拒单转清货自提"
+        },
+        {
+          "point": "平台下发配送面单给退货仓",
+          "status": "hit",
+          "detail": "RAG明确面单下发退货仓"
+        },
+        {
+          "point": "退货仓打印&粘贴配送面单",
+          "status": "hit",
+          "detail": "RAG明确打印并粘贴面单"
+        },
+        {
+          "point": "退货仓组大包出库（计费节点）",
+          "status": "hit",
+          "detail": "RAG明确组大包出库为计费节点"
+        },
+        {
+          "point": "配CP Ascan → 配CP Dscan",
+          "status": "hit",
+          "detail": "RAG明确Ascan和Dscan节点"
+        },
+        {
+          "point": "正向仓质检团队签收",
+          "status": "hit",
+          "detail": "RAG明确正向仓质检团队签收"
+        }
+      ]
+    },
+    {
+      "id": 56,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 5,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 5,
+      "keyPoints": [
+        {
+          "point": "质检判定为次品",
+          "status": "hit",
+          "detail": "RAG明确质检判定为次品"
+        },
+        {
+          "point": "进入清货计划-自提",
+          "status": "hit",
+          "detail": "RAG明确进入清货计划-自提"
+        },
+        {
+          "point": "商家团队指定的第三方服务商预约自提",
+          "status": "hit",
+          "detail": "RAG明确商家指定第三方服务商"
+        },
+        {
+          "point": "按时提货则出库完成",
+          "status": "hit",
+          "detail": "RAG明确按时提货则出库完成"
+        },
+        {
+          "point": "未按时提货则超期销毁",
+          "status": "hit",
+          "detail": "RAG明确未按时提货超期销毁"
+        }
+      ]
+    },
+    {
+      "id": 57,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 6,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 6,
+      "keyPoints": [
+        {
+          "point": "全托BBC预处置策略包含质检后二售和清货计划-自提",
+          "status": "hit",
+          "detail": "RAG完整列出两个策略"
+        },
+        {
+          "point": "海托预处置策略包含质检后二售和退商家仓",
+          "status": "hit",
+          "detail": "RAG完整列出两个策略"
+        },
+        {
+          "point": "海托商家仓地址由上游下发",
+          "status": "hit",
+          "detail": "RAG提及由上游策略决定"
+        },
+        {
+          "point": "全托BBC次品进入清货计划-自提由第三方服务商预约自提",
+          "status": "hit",
+          "detail": "RAG明确全托次品走自提流程"
+        },
+        {
+          "point": "海托次品按预处置策略可选择本地销毁或二段商家仓（寄送给商家）",
+          "status": "hit",
+          "detail": "RAG明确海托次品可选销毁或退仓"
+        },
+        {
+          "point": "全托BBC与海托次品处置存在差异",
+          "status": "hit",
+          "detail": "RAG关键区别总结明确差异"
+        }
+      ]
+    },
+    {
+      "id": 58,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 6,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 6,
+      "keyPoints": [
+        {
+          "point": "适用于跨境POP商家模式",
+          "status": "hit",
+          "detail": "RAG明确跨境POP商家模式"
+        },
+        {
+          "point": "单价25美金以上的良品商品可通过香港退货仓中转后送至香港优选仓完成二售",
+          "status": "hit",
+          "detail": "RAG明确单价≥25美元良品"
+        },
+        {
+          "point": "服务商类型为强控、大B段（乐链、优时派）",
+          "status": "hit",
+          "detail": "RAG明确强控大B段服务商"
+        },
+        {
+          "point": "质检后二售预处置策略仅分单给有退香港能力的仓资源code",
+          "status": "hit",
+          "detail": "RAG明确仅分单给有退港能力的仓"
+        },
+        {
+          "point": "无退香港能力国家对商不展示该选项",
+          "status": "hit",
+          "detail": "RAG明确无能力国家不展示选项"
+        },
+        {
+          "point": "在同一个国家可设置不同CP分单比例",
+          "status": "hit",
+          "detail": "RAG明确可为不同CP设差异化比例"
+        }
+      ]
+    },
+    {
+      "id": 59,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 5,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 5,
+      "keyPoints": [
+        {
+          "point": "0311与项目PM沟通后取消了海外退货仓前置质检操作",
+          "status": "hit",
+          "detail": "RAG明确取消海外仓质检操作"
+        },
+        {
+          "point": "由商家域前置过滤件重尺是否符合要求",
+          "status": "hit",
+          "detail": "RAG明确商家域前置过滤件重尺"
+        },
+        {
+          "point": "实物到达香港优选仓后测量件重尺",
+          "status": "hit",
+          "detail": "RAG明确香港优选仓测量件重尺"
+        },
+        {
+          "point": "不符合要求不支持二售且对商无赔付",
+          "status": "hit",
+          "detail": "RAG明确不支持二售且无赔付"
+        },
+        {
+          "point": "判责为商家责任导致无法二售",
+          "status": "hit",
+          "detail": "RAG明确判责为商家责任"
+        }
+      ]
+    },
+    {
+      "id": 60,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 5,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 5,
+      "keyPoints": [
+        {
+          "point": "仓库基于货量情况安排优选仓送货并以大包号出库",
+          "status": "hit",
+          "detail": "RAG明确基于货量安排大包出库"
+        },
+        {
+          "point": "香港仓CP基于大包信息创建交接单（包含大包号、出库LP单号、交接时间、交接人）",
+          "status": "hit",
+          "detail": "RAG明确交接单四项内容"
+        },
+        {
+          "point": "香港退货仓线下短驳运输至香港优选仓",
+          "status": "hit",
+          "detail": "RAG明确线下短驳运输"
+        },
+        {
+          "point": "香港优选仓质检团队在交接单签字",
+          "status": "hit",
+          "detail": "RAG明确质检团队签字确认"
+        },
+        {
+          "point": "香港退货仓回传交接完成节点并上传交接单照片",
+          "status": "hit",
+          "detail": "RAG明确回传交接完成并上传照片"
+        }
+      ]
+    },
+    {
+      "id": 61,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 9,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 9,
+      "keyPoints": [
+        {
+          "point": "退国内流程分为两段（4PL段和3PL段）",
+          "status": "hit",
+          "detail": "明确描述两段拆分"
+        },
+        {
+          "point": "4PL段（海外仓→香港仓）维持平台物流模式由平台结算",
+          "status": "hit",
+          "detail": "平台负责履约结算"
+        },
+        {
+          "point": "3PL段（香港仓→国内商家仓）由商家与物流服务商直接签约通过ipay结算",
+          "status": "hit",
+          "detail": "商家直接签约ipay结算"
+        },
+        {
+          "point": "平台不参与3PL段对账及结算",
+          "status": "hit",
+          "detail": "明确平台不参与"
+        },
+        {
+          "point": "适用业务类型为跨境POP",
+          "status": "hit",
+          "detail": "列出跨境POP"
+        },
+        {
+          "point": "适用业务类型为跨境半托管",
+          "status": "hit",
+          "detail": "列出跨境半托管"
+        },
+        {
+          "point": "解决方案为C2G_STANDARD_RETURN_CHINA",
+          "status": "hit",
+          "detail": "完整写出方案名"
+        },
+        {
+          "point": "开通退国内国家共12个",
+          "status": "hit",
+          "detail": "列出12个国家正确"
+        },
+        {
+          "point": "12国含西班牙、德国、法国、英国、意大利、波兰、荷兰、美国、墨西哥、澳大利亚、韩国、沙特",
+          "status": "hit",
+          "detail": "全部国家正确列出"
+        }
+      ]
+    },
+    {
+      "id": 62,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 6,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 6,
+      "keyPoints": [
+        {
+          "point": "商家&平台协议：明确平台只负责海外至香港仓段落",
+          "status": "hit",
+          "detail": "准确描述平台职责"
+        },
+        {
+          "point": "商家&平台协议：授权平台向服务商下发退国内指令及数据",
+          "status": "hit",
+          "detail": "授权条款已覆盖"
+        },
+        {
+          "point": "商家&物流商协议：增加香港仓→国内商家仓段3PL协议",
+          "status": "hit",
+          "detail": "3PL段协议描述正确"
+        },
+        {
+          "point": "商家&物流商协议：包含服务内容、价格及赔付规则",
+          "status": "hit",
+          "detail": "三项内容均覆盖"
+        },
+        {
+          "point": "平台&物流商协议：针对退国内香港仓→国内商家仓段新增协议",
+          "status": "hit",
+          "detail": "新增协议描述正确"
+        },
+        {
+          "point": "平台&物流商协议：包含数据交互规则、保密条款、货物交接规则",
+          "status": "hit",
+          "detail": "三项规则均覆盖"
+        }
+      ]
+    },
+    {
+      "id": 63,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 6,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 6,
+      "keyPoints": [
+        {
+          "point": "根据货物所在HKG仓进行退国内3PL供应商判断",
+          "status": "hit",
+          "detail": "HKG仓资源code判定"
+        },
+        {
+          "point": "乐链香港仓资源code：TRAN_STORE_A8800308004",
+          "status": "hit",
+          "detail": "code完全匹配"
+        },
+        {
+          "point": "乐链香港仓资源code：TRAN_STORE_30705521",
+          "status": "hit",
+          "detail": "code完全匹配"
+        },
+        {
+          "point": "乐链香港仓对应退国内3PL CP为乐链",
+          "status": "hit",
+          "detail": "映射关系正确"
+        },
+        {
+          "point": "Uspeed香港仓资源code：TRAN_STORE_A8800123004",
+          "status": "hit",
+          "detail": "code完全匹配"
+        },
+        {
+          "point": "Uspeed香港仓对应退国内3PL CP为Uspeed",
+          "status": "hit",
+          "detail": "映射关系正确"
+        }
+      ]
+    },
+    {
+      "id": 64,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 89,
+      "hitCount": 17,
+      "missCount": 2,
+      "wrongCount": 0,
+      "totalKeyPoints": 19,
+      "keyPoints": [
+        {
+          "point": "退国内出库单维持一个出库AP",
+          "status": "hit",
+          "detail": "一个出库AP单"
+        },
+        {
+          "point": "物流履行单拆分为4PL段落和3PL段落",
+          "status": "hit",
+          "detail": "拆分描述正确"
+        },
+        {
+          "point": "3PL段起点为3PL服务商收货成功",
+          "status": "hit",
+          "detail": "起点正确"
+        },
+        {
+          "point": "3PL段终点为商家签收",
+          "status": "hit",
+          "detail": "终点正确"
+        },
+        {
+          "point": "3PL段需回传前台3PL订单号",
+          "status": "hit",
+          "detail": "回传3PL单号"
+        },
+        {
+          "point": "所有物流轨迹展示在3PL单号上",
+          "status": "hit",
+          "detail": "轨迹归属3PL单号"
+        },
+        {
+          "point": "不得出现在4PL单号上",
+          "status": "hit",
+          "detail": "不在4PL单号展示"
+        },
+        {
+          "point": "带有3.5PL标识的订单取消正逆向数据匹配",
+          "status": "miss",
+          "detail": "未提及取消数据匹配"
+        },
+        {
+          "point": "不做口岸判断",
+          "status": "hit",
+          "detail": "阻断关务与口岸决策"
+        },
+        {
+          "point": "退国内标签改为HKG口岸",
+          "status": "miss",
+          "detail": "未在ID64答案中提及"
+        },
+        {
+          "point": "3PL段共8个物流节点",
+          "status": "hit",
+          "detail": "明确列出8个节点"
+        },
+        {
+          "point": "接单成功",
+          "status": "hit",
+          "detail": "节点已列出"
+        },
+        {
+          "point": "接单失败（需CP回传失败信息）",
+          "status": "hit",
+          "detail": "节点已列出含回传"
+        },
+        {
+          "point": "收货成功（3PL段计费节点）",
+          "status": "hit",
+          "detail": "计费起始节点"
+        },
+        {
+          "point": "香港启运",
+          "status": "hit",
+          "detail": "节点已列出"
+        },
+        {
+          "point": "国内入库",
+          "status": "hit",
+          "detail": "节点已列出"
+        },
+        {
+          "point": "国内出库",
+          "status": "hit",
+          "detail": "节点已列出"
+        },
+        {
+          "point": "签收成功",
+          "status": "hit",
+          "detail": "节点已列出"
+        },
+        {
+          "point": "签收异常",
+          "status": "hit",
+          "detail": "节点已列出"
+        }
+      ]
+    },
+    {
+      "id": 65,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 57,
+      "hitCount": 4,
+      "missCount": 3,
+      "wrongCount": 0,
+      "totalKeyPoints": 7,
+      "keyPoints": [
+        {
+          "point": "4PL段结算关系为商家→平台→物流服务商",
+          "status": "hit",
+          "detail": "平台统一结算覆盖"
+        },
+        {
+          "point": "4PL段应收计费节点为香港仓入库",
+          "status": "miss",
+          "detail": "未提及计费节点"
+        },
+        {
+          "point": "4PL段应收计费节点为KR海外仓出库",
+          "status": "miss",
+          "detail": "未提及KR出库节点"
+        },
+        {
+          "point": "4PL段含干线+香港仓内操作",
+          "status": "miss",
+          "detail": "未提及干线和仓内操作"
+        },
+        {
+          "point": "3PL段结算关系为商家→物流服务商通过ipay直接结算",
+          "status": "hit",
+          "detail": "ipay直接结算"
+        },
+        {
+          "point": "物流部不参与3PL段对账及结算",
+          "status": "hit",
+          "detail": "不参与对账不生成应收应付"
+        },
+        {
+          "point": "3PL段阻断应收/应付结算",
+          "status": "hit",
+          "detail": "不生成应收应付"
+        }
+      ]
+    },
+    {
+      "id": 66,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 88,
+      "hitCount": 7,
+      "missCount": 1,
+      "wrongCount": 0,
+      "totalKeyPoints": 8,
+      "keyPoints": [
+        {
+          "point": "服务商上传账单后5天自然日商家未确认/未驳回",
+          "status": "hit",
+          "detail": "5个自然日覆盖"
+        },
+        {
+          "point": "超5天自然日未付款可停服",
+          "status": "hit",
+          "detail": "超期触发停服"
+        },
+        {
+          "point": "供应商线下举手针对恶意商家",
+          "status": "hit",
+          "detail": "线下举手提出"
+        },
+        {
+          "point": "供应商、物流部及商流团队信息拉齐后商流线下维护黑名单支持停服",
+          "status": "hit",
+          "detail": "三方拉齐维护黑名单"
+        },
+        {
+          "point": "商家历史有一单欠款就需要停服",
+          "status": "hit",
+          "detail": "任意一单欠款触发"
+        },
+        {
+          "point": "历史全部不欠款才可恢复服务商",
+          "status": "hit",
+          "detail": "全部无欠款才恢复"
+        },
+        {
+          "point": "停服后前台对新增订单预处置指令改为海外仓自提",
+          "status": "hit",
+          "detail": "改为海外仓自提"
+        },
+        {
+          "point": "停服交互链路：服务商→物流部→履约→交易",
+          "status": "miss",
+          "detail": "未提及交互链路"
+        }
+      ]
+    },
+    {
+      "id": 67,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 75,
+      "hitCount": 9,
+      "missCount": 3,
+      "wrongCount": 0,
+      "totalKeyPoints": 12,
+      "keyPoints": [
+        {
+          "point": "乐链流程：收货→启运（收款完成）→国内入→国内出→商家签收",
+          "status": "hit",
+          "detail": "流程完全匹配"
+        },
+        {
+          "point": "Uspeed流程：收货→线下材料→启运（收款完成）→国内入→国内出→商家签收",
+          "status": "hit",
+          "detail": "含线下材料环节"
+        },
+        {
+          "point": "乐链回传4个节点（收货成功、香港启运、签收成功、签收异常）",
+          "status": "hit",
+          "detail": "4个节点正确"
+        },
+        {
+          "point": "Uspeed回传6个节点多了国内入库、国内出库",
+          "status": "hit",
+          "detail": "6个节点含多出2个"
+        },
+        {
+          "point": "计费节点均为服务商收货成功",
+          "status": "hit",
+          "detail": "计费节点一致"
+        },
+        {
+          "point": "承诺时效均为60CD（付款完成→商家签收）",
+          "status": "miss",
+          "detail": "未提及60CD承诺时效"
+        },
+        {
+          "point": "赔付上限：乐链800/2500RMB",
+          "status": "hit",
+          "detail": "800/2500RMB正确"
+        },
+        {
+          "point": "赔付上限：Uspeed 800RMB",
+          "status": "hit",
+          "detail": "800RMB正确"
+        },
+        {
+          "point": "Uspeed有CP服务单号规则（USP+年月日+XXXXX）",
+          "status": "hit",
+          "detail": "单号格式正确"
+        },
+        {
+          "point": "乐链无CP服务单号规则",
+          "status": "hit",
+          "detail": "乐链无单号规则"
+        },
+        {
+          "point": "付款等待时效均为账单发起后5CD内完成付款",
+          "status": "miss",
+          "detail": "未提及5CD付款时效"
+        },
+        {
+          "point": "超30CD视为弃货可销毁",
+          "status": "miss",
+          "detail": "未提及30CD弃货规则"
+        }
+      ]
+    },
+    {
+      "id": 68,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 11,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 11,
+      "keyPoints": [
+        {
+          "point": "S1 17CD达成率仅85%低于目标90%",
+          "status": "hit",
+          "detail": "85%低于90%目标"
+        },
+        {
+          "point": "Q3签收争议订单1.1K单",
+          "status": "hit",
+          "detail": "1.1K单正确"
+        },
+        {
+          "point": "涉及交易金额10.4W美金",
+          "status": "hit",
+          "detail": "10.4W美金正确"
+        },
+        {
+          "point": "退商家仓依赖商家确认收货后方可退款影响消费者体验",
+          "status": "hit",
+          "detail": "退款依赖商家确认"
+        },
+        {
+          "point": "末端快递为三方支付C2C业务CP可选范围受限",
+          "status": "hit",
+          "detail": "C2C模式CP受限"
+        },
+        {
+          "point": "入库段侧重消费者体验",
+          "status": "hit",
+          "detail": "明确标注消费者体验"
+        },
+        {
+          "point": "消费者货物退至本地平台仓",
+          "status": "hit",
+          "detail": "送至本地平台仓"
+        },
+        {
+          "point": "通过平台仓质检提升纠纷处理公证力及消费者退款时效",
+          "status": "hit",
+          "detail": "质检提升公证力与时效"
+        },
+        {
+          "point": "出库段侧重商家体验",
+          "status": "hit",
+          "detail": "明确标注商家体验"
+        },
+        {
+          "point": "质检完成后二段配送至商家仓",
+          "status": "hit",
+          "detail": "二段配送至商家仓"
+        },
+        {
+          "point": "扩大配送CP可选范围提升妥投及时率及服务确定性",
+          "status": "hit",
+          "detail": "扩大CP提升妥投率"
+        }
+      ]
+    },
+    {
+      "id": 69,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 8,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 8,
+      "keyPoints": [
+        {
+          "point": "逆向业务类型为本地退",
+          "status": "hit",
+          "detail": "本地退已列出"
+        },
+        {
+          "point": "逆向业务类型为泛欧退",
+          "status": "hit",
+          "detail": "泛欧退已列出"
+        },
+        {
+          "point": "业务类型涵盖跨境",
+          "status": "hit",
+          "detail": "跨境已列出"
+        },
+        {
+          "point": "业务类型涵盖本地",
+          "status": "hit",
+          "detail": "本地已列出"
+        },
+        {
+          "point": "消费者国家范围共10个",
+          "status": "hit",
+          "detail": "明确标注10个"
+        },
+        {
+          "point": "10国：西班牙、德国、法国、意大利、波兰、荷兰、英国、美国、墨西哥、澳大利亚",
+          "status": "hit",
+          "detail": "全部国家正确"
+        },
+        {
+          "point": "计划0310系统功能Ready",
+          "status": "hit",
+          "detail": "0310 Ready正确"
+        },
+        {
+          "point": "0331完成全量业务切换",
+          "status": "hit",
+          "detail": "0331全量切换正确"
+        }
+      ]
+    },
+    {
+      "id": 70,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 8,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 8,
+      "keyPoints": [
+        {
+          "point": "库内质检复用现有质检标准",
+          "status": "hit",
+          "detail": "复用现有标准"
+        },
+        {
+          "point": "退商家仓指令货物无论良残都完成退商家仓履约",
+          "status": "hit",
+          "detail": "无论良残均完成履约"
+        },
+        {
+          "point": "出库包裹称重（质检完成后货物称重）",
+          "status": "hit",
+          "detail": "质检后称重"
+        },
+        {
+          "point": "在出库完成节点回传重量作为应收应付依据",
+          "status": "hit",
+          "detail": "出库节点回传重量"
+        },
+        {
+          "point": "预报下发（称重完成下发订单数据至二段承运商）",
+          "status": "hit",
+          "detail": "下发至二段承运商"
+        },
+        {
+          "point": "打印面单（系统建立二段物流单号与AP单号关联关系）",
+          "status": "hit",
+          "detail": "二段单号与AP关联"
+        },
+        {
+          "point": "支持扫描AP单号打印出库二段面单",
+          "status": "hit",
+          "detail": "扫描AP打印面单"
+        },
+        {
+          "point": "仓库组大包交接（无需分国家）",
+          "status": "hit",
+          "detail": "无需按国家分类"
+        }
+      ]
+    },
+    {
+      "id": 71,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 8,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 8,
+      "keyPoints": [
+        {
+          "point": "质检完成后系统向配送CP下单获取面单Label",
+          "status": "hit",
+          "detail": "系统向CP下单"
+        },
+        {
+          "point": "CP接单成功→RMS库内系统立即打印配送面单进行换单",
+          "status": "hit",
+          "detail": "接单成功打印换单"
+        },
+        {
+          "point": "CP接单失败→CP回传失败原因",
+          "status": "hit",
+          "detail": "回传具体失败原因"
+        },
+        {
+          "point": "仓库贴异常面单（临时简易面单）分堆保管",
+          "status": "hit",
+          "detail": "临时面单分堆保管"
+        },
+        {
+          "point": "前台by失败原因10CD与商家确认自提方案",
+          "status": "hit",
+          "detail": "10CD邮件确认方案"
+        },
+        {
+          "point": "商家未回复/不自提/超时自提→仓库回传质检后销毁节点",
+          "status": "hit",
+          "detail": "回传销毁节点"
+        },
+        {
+          "point": "商家回复自提→商家需邮件向仓库预约提货",
+          "status": "hit",
+          "detail": "邮件预约提货"
+        },
+        {
+          "point": "提货完成后仓回传自提成功节点",
+          "status": "hit",
+          "detail": "回传自提成功节点"
+        }
+      ]
+    },
+    {
+      "id": 72,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 8,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 8,
+      "keyPoints": [
+        {
+          "point": "新增3个物流节点",
+          "status": "hit",
+          "detail": "3个节点明确列出"
+        },
+        {
+          "point": "派送揽收——二段派送服务商完成揽收代表二段派送起点",
+          "status": "hit",
+          "detail": "业务语义正确"
+        },
+        {
+          "point": "派送揽收为计费节点",
+          "status": "hit",
+          "detail": "计费节点标注"
+        },
+        {
+          "point": "派送揽收为时效考核强节点",
+          "status": "hit",
+          "detail": "时效考核强节点"
+        },
+        {
+          "point": "派送成功——完成二段出库单配送服务代表商家签收",
+          "status": "hit",
+          "detail": "商家签收语义正确"
+        },
+        {
+          "point": "派送成功为时效考核强节点",
+          "status": "hit",
+          "detail": "时效考核强节点"
+        },
+        {
+          "point": "派送失败需CP回告派送失败节点并同时回传具体原因",
+          "status": "hit",
+          "detail": "回告失败及原因"
+        },
+        {
+          "point": "派送失败用于异常跟踪",
+          "status": "hit",
+          "detail": "异常跟踪用途"
+        }
+      ]
+    },
+    {
+      "id": 73,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 12,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 12,
+      "keyPoints": [
+        {
+          "point": "入库段Ascan→质检完成",
+          "status": "hit",
+          "detail": "入库段范围正确"
+        },
+        {
+          "point": "90分位时效7CD",
+          "status": "hit",
+          "detail": "7CD正确"
+        },
+        {
+          "point": "尾单考核≤2%",
+          "status": "hit",
+          "detail": "≤2%正确"
+        },
+        {
+          "point": "尾单考核Ascan→质检完成17CD",
+          "status": "hit",
+          "detail": "17CD正确"
+        },
+        {
+          "point": "出库段质检完成→派送揽收2CD",
+          "status": "hit",
+          "detail": "2CD正确"
+        },
+        {
+          "point": "配送段本本退5CD",
+          "status": "hit",
+          "detail": "5CD正确"
+        },
+        {
+          "point": "配送段泛欧退10CD",
+          "status": "hit",
+          "detail": "10CD正确"
+        },
+        {
+          "point": "90分位本本退质检完成→派送完成7CD",
+          "status": "hit",
+          "detail": "7CD正确"
+        },
+        {
+          "point": "90分位泛欧退质检完成→派送完成12CD",
+          "status": "hit",
+          "detail": "12CD正确"
+        },
+        {
+          "point": "尾单考核≤5%",
+          "status": "hit",
+          "detail": "≤5%正确"
+        },
+        {
+          "point": "尾单考核本本17CD",
+          "status": "hit",
+          "detail": "17CD正确"
+        },
+        {
+          "point": "尾单考核泛欧25CD",
+          "status": "hit",
+          "detail": "25CD正确"
+        }
+      ]
+    },
+    {
+      "id": 74,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 75,
+      "hitCount": 6,
+      "missCount": 2,
+      "wrongCount": 0,
+      "totalKeyPoints": 8,
+      "keyPoints": [
+        {
+          "point": "新模式采用退平台仓价卡+退商家仓价卡",
+          "status": "hit",
+          "detail": "双价卡模式正确"
+        },
+        {
+          "point": "from消费者地址to平台仓+from平台仓to商家仓地址",
+          "status": "hit",
+          "detail": "两段价卡范围正确"
+        },
+        {
+          "point": "入库单保持退平台仓解决方案不变",
+          "status": "hit",
+          "detail": "入库单方案不变"
+        },
+        {
+          "point": "出库单解决方案C2G_STANDARD_RETURN_SELLER_2",
+          "status": "hit",
+          "detail": "方案名称正确"
+        },
+        {
+          "point": "配方案C2G_STANDARD_RETURN_SELLER_2",
+          "status": "hit",
+          "detail": "配方案名称正确"
+        },
+        {
+          "point": "存量单据保持C2G_STANDARD_RETURN_SELLER",
+          "status": "hit",
+          "detail": "存量方案正确"
+        },
+        {
+          "point": "费用项为退商家仓派送费",
+          "status": "miss",
+          "detail": "未提及费用项名称"
+        },
+        {
+          "point": "计费节点为派送揽收",
+          "status": "miss",
+          "detail": "未提及计费节点"
+        }
+      ]
+    },
+    {
+      "id": 75,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 88,
+      "hitCount": 7,
+      "missCount": 1,
+      "wrongCount": 0,
+      "totalKeyPoints": 8,
+      "keyPoints": [
+        {
+          "point": "目的：规范滞销/残次/过期/违规商品销毁、防止二次流通、降低企业风险",
+          "status": "miss",
+          "detail": "RAG目的描述侧重数据安全"
+        },
+        {
+          "point": "确保符合当地法律法规",
+          "status": "hit",
+          "detail": "满足合规要求"
+        },
+        {
+          "point": "适用范围包含免质检销毁",
+          "status": "hit",
+          "detail": "免质检销毁已列出"
+        },
+        {
+          "point": "适用范围包含质检次品出库销毁",
+          "status": "hit",
+          "detail": "质检次品已列出"
+        },
+        {
+          "point": "适用范围包含本地自提未提超时销毁",
+          "status": "hit",
+          "detail": "超时销毁已列出"
+        },
+        {
+          "point": "免质检销毁定义：入库扫描识别为destroy无需质检直接脱敏",
+          "status": "hit",
+          "detail": "定义正确"
+        },
+        {
+          "point": "质检次品出库销毁定义：生成DESTROY NOW或Destroy X Days Later策略自动生成销毁LP",
+          "status": "hit",
+          "detail": "策略和LP描述正确"
+        },
+        {
+          "point": "超时销毁定义：商家超时预约/超时自提自动转为超时销毁状态",
+          "status": "hit",
+          "detail": "超时销毁定义正确"
+        }
+      ]
+    },
+    {
+      "id": 76,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 20,
+      "hitCount": 1,
+      "missCount": 2,
+      "wrongCount": 2,
+      "totalKeyPoints": 5,
+      "keyPoints": [
+        {
+          "point": "全托商品需要以大包形式在库存储",
+          "status": "miss",
+          "detail": "未提及大包形式存储"
+        },
+        {
+          "point": "美国存储12天",
+          "status": "wrong",
+          "detail": "RAG说17CD非12天"
+        },
+        {
+          "point": "其他国家存储26天",
+          "status": "wrong",
+          "detail": "RAG说17CD非26天"
+        },
+        {
+          "point": "存储到期后按大包完成销毁",
+          "status": "hit",
+          "detail": "到期销毁结果正确"
+        },
+        {
+          "point": "对应出库策略为Destroy X Days Later",
+          "status": "miss",
+          "detail": "未提及该出库策略"
+        }
+      ]
+    },
+    {
+      "id": 77,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 6,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 6,
+      "keyPoints": [
+        {
+          "point": "大包组包完成后商家未在17CD内完成预约+提货",
+          "status": "hit",
+          "detail": "17CD内预约+提货"
+        },
+        {
+          "point": "17CD后自动转销毁",
+          "status": "hit",
+          "detail": "自动转超时销毁"
+        },
+        {
+          "point": "因非商家原因销毁影响赔付按货值计入丢失场景做赔付",
+          "status": "hit",
+          "detail": "丢失场景赔付"
+        },
+        {
+          "point": "组包完成后>7WD为超时预约→包裹销毁",
+          "status": "hit",
+          "detail": "7WD超时预约销毁"
+        },
+        {
+          "point": "≤7WD为正常预约→自提出库→判断预约时效内是否提货",
+          "status": "hit",
+          "detail": "正常预约判断提货"
+        },
+        {
+          "point": "时效内未提货则包裹销毁",
+          "status": "hit",
+          "detail": "未提货触发销毁"
+        }
+      ]
+    },
+    {
+      "id": 78,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 9,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 9,
+      "keyPoints": [
+        {
+          "point": "仓库人员根据清单核对商品信息（SKU、批次、数量、状态）",
+          "status": "hit",
+          "detail": "逐项核对信息"
+        },
+        {
+          "point": "确保与系统记录一致",
+          "status": "hit",
+          "detail": "与系统记录一致"
+        },
+        {
+          "point": "将待销毁商品移至独立暂存区",
+          "status": "hit",
+          "detail": "独立暂存区"
+        },
+        {
+          "point": "贴待销毁标签",
+          "status": "hit",
+          "detail": "待销毁标签"
+        },
+        {
+          "point": "禁止与其他库存混放",
+          "status": "hit",
+          "detail": "严禁混放"
+        },
+        {
+          "point": "DESTROY NOW和DESTROY LATER分区域存放",
+          "status": "hit",
+          "detail": "分区域存放"
+        },
+        {
+          "point": "做好物理标识",
+          "status": "hit",
+          "detail": "明确物理标识"
+        },
+        {
+          "point": "自提订单放置在自提货架/区域",
+          "status": "hit",
+          "detail": "自提货架区域"
+        },
+        {
+          "point": "超时未提订单经扫描识别后转入DESTROY NOW区域",
+          "status": "hit",
+          "detail": "扫描后转入销毁区"
+        }
+      ]
+    },
+    {
+      "id": 79,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 7,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 7,
+      "keyPoints": [
+        {
+          "point": "面单上的敏感数据需提前脱敏处理",
+          "status": "hit",
+          "detail": "提前脱敏要求"
+        },
+        {
+          "point": "敏感信息包含消费者姓名、地址、电话、邮箱、订单号等",
+          "status": "hit",
+          "detail": "全部信息类型覆盖"
+        },
+        {
+          "point": "含品牌标识商品需确保标识被彻底去除防止品牌侵权",
+          "status": "hit",
+          "detail": "品牌标识去除"
+        },
+        {
+          "point": "脱敏方式：黑色记号笔涂黑",
+          "status": "hit",
+          "detail": "记号笔涂黑"
+        },
+        {
+          "point": "脱敏方式：面单/标识撕毁/粉碎",
+          "status": "hit",
+          "detail": "撕毁或粉碎"
+        },
+        {
+          "point": "脱敏方式：换单覆盖",
+          "status": "hit",
+          "detail": "换单覆盖"
+        },
+        {
+          "point": "敏感信息在销毁后无法通过光照、物理或化学手段复原",
+          "status": "hit",
+          "detail": "不可复原性要求"
+        }
+      ]
+    },
+    {
+      "id": 80,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 10,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 10,
+      "keyPoints": [
+        {
+          "point": "优先选择已签约具备资质的本地销毁服务商",
+          "status": "hit",
+          "detail": "资质验证优先"
+        },
+        {
+          "point": "如Shred-it、Stericycle、本地环保处理公司等",
+          "status": "hit",
+          "detail": "服务商举例正确"
+        },
+        {
+          "point": "需确认服务商可提供上门取件或现场销毁服务",
+          "status": "hit",
+          "detail": "上门取件或现场销毁"
+        },
+        {
+          "point": "需确认服务商可提供带时间戳/GPS的销毁视频或照片",
+          "status": "hit",
+          "detail": "时间戳/GPS视频照片"
+        },
+        {
+          "point": "需确认服务商可提供正式销毁证书/回执Certificate of Destruction",
+          "status": "hit",
+          "detail": "销毁证书回执"
+        },
+        {
+          "point": "销毁交接单含销毁清单（包裹单号、数量/重量）",
+          "status": "hit",
+          "detail": "清单含单号数量重量"
+        },
+        {
+          "point": "销毁交接单含销毁方式",
+          "status": "hit",
+          "detail": "销毁方式已包含"
+        },
+        {
+          "point": "销毁交接单含执行时间",
+          "status": "hit",
+          "detail": "执行时间已包含"
+        },
+        {
+          "point": "销毁交接单含执行人",
+          "status": "hit",
+          "detail": "执行人已包含"
+        },
+        {
+          "point": "销毁交接单含监督人",
+          "status": "hit",
+          "detail": "监督人已包含"
+        }
+      ]
+    },
+    {
+      "id": 81,
+      "chapter": "五、商品处置（Q54–Q81）",
+      "hitRate": 100,
+      "hitCount": 13,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 13,
+      "keyPoints": [
+        {
+          "point": "所有销毁记录至少保存3-7年",
+          "status": "hit",
+          "detail": "RAG明确写出3-7年"
+        },
+        {
+          "point": "保存年限依当地法规要求",
+          "status": "hit",
+          "detail": "RAG提及依当地法规执行"
+        },
+        {
+          "point": "每月20号前提交上月销毁报告",
+          "status": "hit",
+          "detail": "RAG明确写出每月20号前"
+        },
+        {
+          "point": "以邮件形式提交",
+          "status": "hit",
+          "detail": "RAG写明以邮件形式提交"
+        },
+        {
+          "point": "发送给产品部+逆向消退业务+质控同学",
+          "status": "hit",
+          "detail": "RAG完整列出三个接收方"
+        },
+        {
+          "point": "报告包含《销毁清单》",
+          "status": "hit",
+          "detail": "RAG列出销毁清单"
+        },
+        {
+          "point": "报告包含《销毁交接单》",
+          "status": "hit",
+          "detail": "RAG列出销毁交接单"
+        },
+        {
+          "point": "报告包含销毁照片/视频",
+          "status": "hit",
+          "detail": "RAG列出销毁照片/视频"
+        },
+        {
+          "point": "《销毁证书》为可选项",
+          "status": "hit",
+          "detail": "RAG标注销毁证书可选"
+        },
+        {
+          "point": "月度抽检样本量≥总销毁量的1.25%",
+          "status": "hit",
+          "detail": "RAG写明≥1.25%"
+        },
+        {
+          "point": "发现异常48h内停止并上报产品部接口人",
+          "status": "hit",
+          "detail": "RAG写明48小时内上报"
+        },
+        {
+          "point": "SOP迭代需与逆向质控拉通",
+          "status": "hit",
+          "detail": "RAG提及与逆向质控拉通"
+        },
+        {
+          "point": "总部稽核不达标时产品部输出整改报告",
+          "status": "hit",
+          "detail": "RAG写明产品部输出整改报告"
+        }
+      ]
+    },
+    {
+      "id": 82,
+      "chapter": "六、出库与配送（Q82–Q94）",
+      "hitRate": 100,
+      "hitCount": 8,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 8,
+      "keyPoints": [
+        {
+          "point": "共7种出库策略",
+          "status": "hit",
+          "detail": "RAG明确列出7种"
+        },
+        {
+          "point": "Self-Pickup（本地自提）",
+          "status": "hit",
+          "detail": "RAG完整列出"
+        },
+        {
+          "point": "CN（退国内）",
+          "status": "hit",
+          "detail": "RAG完整列出"
+        },
+        {
+          "point": "HK（退香港）",
+          "status": "hit",
+          "detail": "RAG完整列出"
+        },
+        {
+          "point": "DESTROY NOW（本地销毁）",
+          "status": "hit",
+          "detail": "RAG列出(拼写略异但语义一致)"
+        },
+        {
+          "point": "Destroy After 'yyyy-mm-dd'（指定日期销毁）",
+          "status": "hit",
+          "detail": "RAG完整列出"
+        },
+        {
+          "point": "质检后二售",
+          "status": "hit",
+          "detail": "RAG完整列出"
+        },
+        {
+          "point": "清货计划—自提",
+          "status": "hit",
+          "detail": "RAG完整列出"
+        }
+      ]
+    },
+    {
+      "id": 83,
+      "chapter": "六、出库与配送（Q82–Q94）",
+      "hitRate": 100,
+      "hitCount": 4,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 4,
+      "keyPoints": [
+        {
+          "point": "出库结果共3种",
+          "status": "hit",
+          "detail": "RAG明确写出3种"
+        },
+        {
+          "point": "SP（自提）",
+          "status": "hit",
+          "detail": "RAG列出SP自提"
+        },
+        {
+          "point": "CN（退国内）",
+          "status": "hit",
+          "detail": "RAG列出CN退国内"
+        },
+        {
+          "point": "HK（退香港）",
+          "status": "hit",
+          "detail": "RAG列出HK退香港"
+        }
+      ]
+    },
+    {
+      "id": 84,
+      "chapter": "六、出库与配送（Q82–Q94）",
+      "hitRate": 100,
+      "hitCount": 6,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 6,
+      "keyPoints": [
+        {
+          "point": "仅支持PC端操作",
+          "status": "hit",
+          "detail": "RAG写明只支持PC端"
+        },
+        {
+          "point": "包含4个主页签",
+          "status": "hit",
+          "detail": "RAG列出4个主页签"
+        },
+        {
+          "point": "Inbound Package（入库小包）",
+          "status": "hit",
+          "detail": "RAG完整列出"
+        },
+        {
+          "point": "Outbound Package（出库小包）",
+          "status": "hit",
+          "detail": "RAG完整列出"
+        },
+        {
+          "point": "Outbound Bigbag（出库大包）",
+          "status": "hit",
+          "detail": "RAG完整列出"
+        },
+        {
+          "point": "Abnormal（异常）",
+          "status": "hit",
+          "detail": "RAG完整列出"
+        }
+      ]
+    },
+    {
+      "id": 85,
+      "chapter": "六、出库与配送（Q82–Q94）",
+      "hitRate": 100,
+      "hitCount": 3,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 3,
+      "keyPoints": [
+        {
+          "point": "黑码商品合并到本地销毁策略中",
+          "status": "hit",
+          "detail": "RAG写明合并到本地销毁策略"
+        },
+        {
+          "point": "完成销毁即可",
+          "status": "hit",
+          "detail": "RAG写明执行实物销毁"
+        },
+        {
+          "point": "无需单独设立打包策略",
+          "status": "hit",
+          "detail": "RAG写明不单独建包"
+        }
+      ]
+    },
+    {
+      "id": 86,
+      "chapter": "六、出库与配送（Q82–Q94）",
+      "hitRate": 100,
+      "hitCount": 8,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 8,
+      "keyPoints": [
+        {
+          "point": "打包需核实SKU及数量",
+          "status": "hit",
+          "detail": "RAG写明需严格核对SKU数量"
+        },
+        {
+          "point": "按出库策略装入对应商品",
+          "status": "hit",
+          "detail": "RAG写明按策略归类SKU"
+        },
+        {
+          "point": "称重为可选环节",
+          "status": "hit",
+          "detail": "RAG标注称重可选"
+        },
+        {
+          "point": "称重由硬件设备采集",
+          "status": "hit",
+          "detail": "RAG写明硬件设备自动采集"
+        },
+        {
+          "point": "不支持手动输入重量",
+          "status": "hit",
+          "detail": "RAG写明不支持手动输入"
+        },
+        {
+          "point": "打印面单点击Print Waybill",
+          "status": "hit",
+          "detail": "RAG写明点击Print Waybill"
+        },
+        {
+          "point": "封口并粘贴面单",
+          "status": "hit",
+          "detail": "RAG写明封口后粘贴面单"
+        },
+        {
+          "point": "出库面单需覆盖入库面单",
+          "status": "hit",
+          "detail": "RAG写明覆盖原入库面单"
+        }
+      ]
+    },
+    {
+      "id": 87,
+      "chapter": "六、出库与配送（Q82–Q94）",
+      "hitRate": 100,
+      "hitCount": 5,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 5,
+      "keyPoints": [
+        {
+          "point": "已预约和未预约小包不能混装",
+          "status": "hit",
+          "detail": "RAG明确写不允许混装"
+        },
+        {
+          "point": "已预约小包组同一个大包",
+          "status": "hit",
+          "detail": "RAG写明已预约组同一大包"
+        },
+        {
+          "point": "未预约小包组另一个大包",
+          "status": "hit",
+          "detail": "RAG写明未预约组同一大包"
+        },
+        {
+          "point": "二者不支持混包",
+          "status": "hit",
+          "detail": "RAG写明不可也不支持混包"
+        },
+        {
+          "point": "同商家不同预约日期不支持组同一大包",
+          "status": "hit",
+          "detail": "RAG明确写不支持"
+        }
+      ]
+    },
+    {
+      "id": 88,
+      "chapter": "六、出库与配送（Q82–Q94）",
+      "hitRate": 100,
+      "hitCount": 2,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 2,
+      "keyPoints": [
+        {
+          "point": "不能手动输入重量数据",
+          "status": "hit",
+          "detail": "RAG明确写不能手动输入"
+        },
+        {
+          "point": "称重由硬件设备采集结果",
+          "status": "hit",
+          "detail": "RAG写明硬件设备自动采集"
+        }
+      ]
+    },
+    {
+      "id": 89,
+      "chapter": "六、出库与配送（Q82–Q94）",
+      "hitRate": 100,
+      "hitCount": 4,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 4,
+      "keyPoints": [
+        {
+          "point": "普通大包面单右下角无字母标识",
+          "status": "hit",
+          "detail": "RAG写明无字母标识"
+        },
+        {
+          "point": "带电大包面单右下角带字母B标识",
+          "status": "hit",
+          "detail": "RAG写明带字母B标识"
+        },
+        {
+          "point": "仓根据标签分类打托",
+          "status": "hit",
+          "detail": "RAG写明按面单标识分类打托"
+        },
+        {
+          "point": "有B字样的大包打托在一起",
+          "status": "hit",
+          "detail": "RAG写明B字样大包统一打托"
+        }
+      ]
+    },
+    {
+      "id": 90,
+      "chapter": "六、出库与配送（Q82–Q94）",
+      "hitRate": 100,
+      "hitCount": 4,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 4,
+      "keyPoints": [
+        {
+          "point": "以大包形式在库存储",
+          "status": "hit",
+          "detail": "RAG写明以大包形式存储"
+        },
+        {
+          "point": "存储26天（美国12天）",
+          "status": "hit",
+          "detail": "RAG写明26天美国仓12天"
+        },
+        {
+          "point": "存储到期后按大包完成销毁",
+          "status": "hit",
+          "detail": "RAG写明到期按大包销毁"
+        },
+        {
+          "point": "全托商品适用此规则",
+          "status": "hit",
+          "detail": "RAG明确针对全托商品"
+        }
+      ]
+    },
+    {
+      "id": 91,
+      "chapter": "六、出库与配送（Q82–Q94）",
+      "hitRate": 100,
+      "hitCount": 3,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 3,
+      "keyPoints": [
+        {
+          "point": "当前时间减组包时间超7天",
+          "status": "hit",
+          "detail": "RAG写明时间差>7天"
+        },
+        {
+          "point": "大包自动转为超时未自提销毁状态",
+          "status": "hit",
+          "detail": "RAG写明自动转销毁状态"
+        },
+        {
+          "point": "可在台账异常页签中查看",
+          "status": "hit",
+          "detail": "RAG写明异常页签可查"
+        }
+      ]
+    },
+    {
+      "id": 92,
+      "chapter": "六、出库与配送（Q82–Q94）",
+      "hitRate": 100,
+      "hitCount": 5,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 5,
+      "keyPoints": [
+        {
+          "point": "大包无法出库",
+          "status": "hit",
+          "detail": "RAG写明大包无法出库"
+        },
+        {
+          "point": "需拆包",
+          "status": "hit",
+          "detail": "RAG列出拆包步骤"
+        },
+        {
+          "point": "补称未称重小包",
+          "status": "hit",
+          "detail": "RAG写明补称未称重小包"
+        },
+        {
+          "point": "无需重打大包",
+          "status": "hit",
+          "detail": "RAG写明无需重打大包面单"
+        },
+        {
+          "point": "重新组包出库",
+          "status": "hit",
+          "detail": "RAG写明重新组包后出库"
+        }
+      ]
+    },
+    {
+      "id": 93,
+      "chapter": "六、出库与配送（Q82–Q94）",
+      "hitRate": 100,
+      "hitCount": 5,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 5,
+      "keyPoints": [
+        {
+          "point": "这是普电混合报错",
+          "status": "hit",
+          "detail": "RAG写明普电/带电不匹配"
+        },
+        {
+          "point": "普通件和带电件放入同一大包",
+          "status": "hit",
+          "detail": "RAG写明误入对方大包"
+        },
+        {
+          "point": "需检查小包属性是否正确",
+          "status": "hit",
+          "detail": "RAG写明检查属性标签"
+        },
+        {
+          "point": "根据明细打标取出错误小包",
+          "status": "hit",
+          "detail": "RAG写明打标并取出错误小包"
+        },
+        {
+          "point": "重新组包",
+          "status": "hit",
+          "detail": "RAG写明重新扫描组包"
+        }
+      ]
+    },
+    {
+      "id": 94,
+      "chapter": "六、出库与配送（Q82–Q94）",
+      "hitRate": 100,
+      "hitCount": 6,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 6,
+      "keyPoints": [
+        {
+          "point": "包含5个子页签",
+          "status": "hit",
+          "detail": "RAG列出5个子页签"
+        },
+        {
+          "point": "To-be-packed（待打包）",
+          "status": "hit",
+          "detail": "RAG完整列出"
+        },
+        {
+          "point": "To-be-consolidated（待组包）",
+          "status": "hit",
+          "detail": "RAG完整列出"
+        },
+        {
+          "point": "To-be-outbound（待出库）",
+          "status": "hit",
+          "detail": "RAG完整列出"
+        },
+        {
+          "point": "Outbound（已出库）",
+          "status": "hit",
+          "detail": "RAG完整列出"
+        },
+        {
+          "point": "Destroy（销毁）",
+          "status": "hit",
+          "detail": "RAG完整列出"
+        }
+      ]
+    },
+    {
+      "id": 95,
+      "chapter": "七、异常处理方案（Q95–Q100）",
+      "hitRate": 100,
+      "hitCount": 8,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 8,
+      "keyPoints": [
+        {
+          "point": "多面单指一个包裹上有两个及以上不同单号面单",
+          "status": "hit",
+          "detail": "RAG写明两个及以上不同单号"
+        },
+        {
+          "point": "包裹内物混装复杂",
+          "status": "hit",
+          "detail": "RAG写明商品混装复杂"
+        },
+        {
+          "point": "无法一对一完整质检上架",
+          "status": "hit",
+          "detail": "RAG写明无法一一对应质检"
+        },
+        {
+          "point": "先登记异常件",
+          "status": "hit",
+          "detail": "RAG写明登记异常件"
+        },
+        {
+          "point": "异常原因选择multiple labels",
+          "status": "hit",
+          "detail": "RAG写明选Multiple Labels"
+        },
+        {
+          "point": "再逐个面单完成入仓扫描",
+          "status": "hit",
+          "detail": "RAG写明逐个扫描所有面单"
+        },
+        {
+          "point": "开箱铺平所有实际到货实物",
+          "status": "hit",
+          "detail": "RAG写明开箱平铺所有实物"
+        },
+        {
+          "point": "人工目视对比系统记录进行质检",
+          "status": "hit",
+          "detail": "RAG写明人工目视比对"
+        }
+      ]
+    },
+    {
+      "id": 96,
+      "chapter": "七、异常处理方案（Q95–Q100）",
+      "hitRate": 100,
+      "hitCount": 5,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 5,
+      "keyPoints": [
+        {
+          "point": "部分对应时已匹配商品与其他实物分离",
+          "status": "hit",
+          "detail": "RAG写明按匹配关系分离"
+        },
+        {
+          "point": "SKU少于预报选LOST并填写预报数量",
+          "status": "hit",
+          "detail": "RAG写明选LOST填预报数量"
+        },
+        {
+          "point": "多余商品无预报添加为黑码商品",
+          "status": "hit",
+          "detail": "RAG写明添加为黑码商品"
+        },
+        {
+          "point": "完全不对应时在一个订单添加黑码商品及数量",
+          "status": "hit",
+          "detail": "RAG写明任选一单添加黑码"
+        },
+        {
+          "point": "其他订单选择丢失并登记预报数量",
+          "status": "hit",
+          "detail": "RAG写明其余订单选LOST"
+        }
+      ]
+    },
+    {
+      "id": 97,
+      "chapter": "七、异常处理方案（Q95–Q100）",
+      "hitRate": 100,
+      "hitCount": 7,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 7,
+      "keyPoints": [
+        {
+          "point": "三种面单情况",
+          "status": "hit",
+          "detail": "RAG列出3种情况"
+        },
+        {
+          "point": "有面单且是AE：登记other-系统异常无法扫描",
+          "status": "hit",
+          "detail": "RAG写明异常原因编码"
+        },
+        {
+          "point": "仓一周内重新扫描操作",
+          "status": "hit",
+          "detail": "RAG写明一周内重新扫描"
+        },
+        {
+          "point": "有面单但非AE：等待7WD",
+          "status": "hit",
+          "detail": "RAG写明等待7WD"
+        },
+        {
+          "point": "再次扫描仍无法识别则销毁",
+          "status": "hit",
+          "detail": "RAG写明仍无法识别则销毁"
+        },
+        {
+          "point": "无面单：登记No data",
+          "status": "hit",
+          "detail": "RAG写明登记No data"
+        },
+        {
+          "point": "无面单直接完成销毁",
+          "status": "hit",
+          "detail": "RAG写明直接完成销毁"
+        }
+      ]
+    },
+    {
+      "id": 98,
+      "chapter": "七、异常处理方案（Q95–Q100）",
+      "hitRate": 100,
+      "hitCount": 6,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 6,
+      "keyPoints": [
+        {
+          "point": "取消包裹单独存放",
+          "status": "hit",
+          "detail": "RAG写明单独存放"
+        },
+        {
+          "point": "等待7天",
+          "status": "hit",
+          "detail": "RAG写明7天等待期"
+        },
+        {
+          "point": "7日内有指令按常规件处理",
+          "status": "hit",
+          "detail": "RAG写明按常规件执行"
+        },
+        {
+          "point": "无指令则销毁处理",
+          "status": "hit",
+          "detail": "RAG写明执行销毁处理"
+        },
+        {
+          "point": "不纳入时效考核",
+          "status": "hit",
+          "detail": "RAG写明不纳入时效考核"
+        },
+        {
+          "point": "因履约单已关闭",
+          "status": "hit",
+          "detail": "RAG写明履约单已关闭"
+        }
+      ]
+    },
+    {
+      "id": 99,
+      "chapter": "七、异常处理方案（Q95–Q100）",
+      "hitRate": 100,
+      "hitCount": 10,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 10,
+      "keyPoints": [
+        {
+          "point": "空包定义：无内物/仅含填充物/价值极低",
+          "status": "hit",
+          "detail": "RAG完整写出三个特征"
+        },
+        {
+          "point": "与订单商品信息差异大",
+          "status": "hit",
+          "detail": "RAG写明差异极大"
+        },
+        {
+          "point": "无法完成质检上架",
+          "status": "hit",
+          "detail": "RAG写明无法完成质检上架"
+        },
+        {
+          "point": "需上传3张图片",
+          "status": "hit",
+          "detail": "RAG明确写出3张图片"
+        },
+        {
+          "point": "包裹检查上传包裹图",
+          "status": "hit",
+          "detail": "RAG写明外包装含面单照片"
+        },
+        {
+          "point": "拆包检查上传货物图",
+          "status": "hit",
+          "detail": "RAG写明内部状态照片"
+        },
+        {
+          "point": "商品描述也上传货物图",
+          "status": "hit",
+          "detail": "RAG写明同拆包检查照片"
+        },
+        {
+          "point": "选择丢失(lost)选项",
+          "status": "hit",
+          "detail": "RAG写明选丢失lost选项"
+        },
+        {
+          "point": "填写预报数量",
+          "status": "hit",
+          "detail": "RAG写明填写预报数量"
+        },
+        {
+          "point": "实物进行销毁",
+          "status": "hit",
+          "detail": "RAG写明实物执行销毁"
+        }
+      ]
+    },
+    {
+      "id": 100,
+      "chapter": "七、异常处理方案（Q95–Q100）",
+      "hitRate": 100,
+      "hitCount": 7,
+      "missCount": 0,
+      "wrongCount": 0,
+      "totalKeyPoints": 7,
+      "keyPoints": [
+        {
+          "point": "点击异常(Abnormal)菜单",
+          "status": "hit",
+          "detail": "RAG写明点击异常菜单"
+        },
+        {
+          "point": "扫描包裹",
+          "status": "hit",
+          "detail": "RAG写明扫描物流单号"
+        },
+        {
+          "point": "选择异常原因Multiple Labels",
+          "status": "hit",
+          "detail": "RAG列出Multiple Labels"
+        },
+        {
+          "point": "选择异常原因Damaged",
+          "status": "hit",
+          "detail": "RAG列出Damaged"
+        },
+        {
+          "point": "选择异常原因Other",
+          "status": "hit",
+          "detail": "RAG列出Other"
+        },
+        {
+          "point": "点击Confirm确认",
+          "status": "hit",
+          "detail": "RAG写明点击Confirm提交"
+        },
+        {
+          "point": "可在异常列表中查看已登记记录",
+          "status": "hit",
+          "detail": "RAG写明异常列表中查看"
+        }
+      ]
+    }
+  ]
+}

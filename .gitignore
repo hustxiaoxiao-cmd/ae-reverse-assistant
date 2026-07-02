@@ -1,7 +1,11 @@
 node_modules
-.env
 dist/
-.cache/
-data/
+.env
 .DS_Store
-*.log
+.cache/
+data/queries.json
+data/feedbacks.json
+data/vector-cache.json
+data/index-error.log
+.oneday-context
+.aone_copilot/

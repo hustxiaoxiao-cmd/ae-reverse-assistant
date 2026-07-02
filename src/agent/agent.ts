@@ -44,13 +44,6 @@ export class Agent {
     }
 
     /**
-     * 获取当前使用的模型名称
-     */
-    getCurrentModel(): string {
-        return this.model;
-    }
-
-    /**
      * 切换到下一个备用模型
      */
     private switchToNextModel(): boolean {

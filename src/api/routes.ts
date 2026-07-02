@@ -12,6 +12,9 @@ export function setupRoutes(app: express.Express, agent: Agent): void {
     const queryService = new QueryService(agent);
     const analyticsService = new AnalyticsService();
 
+    // 解析 JSON 请求体
+    app.use(express.json());
+
     // 静态文件服务（前端页面）
     app.use(express.static(path.join(__dirname, '../../public')));
 
@@ -138,7 +141,6 @@ export function setupRoutes(app: express.Express, agent: Agent): void {
         }
     });
 
-    app.use(express.json());
     app.use('/api', router);
 
     // 根路由返回落地页

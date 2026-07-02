@@ -9,10 +9,6 @@ interface StoredVector {
 export class VectorStore {
     private vectors: StoredVector[] = [];
 
-    addVector(entryId: string, vector: number[]): void {
-        this.vectors.push({ entryId, vector });
-    }
-
     addBatch(entries: Array<{ entryId: string; vector: number[] }>): void {
         for (const entry of entries) {
             this.vectors.push(entry);
@@ -40,10 +36,6 @@ export class VectorStore {
 
     getAllVectors(): StoredVector[] {
         return this.vectors;
-    }
-
-    clear(): void {
-        this.vectors = [];
     }
 
     private cosineSimilarity(vecA: number[], vecB: number[]): number {

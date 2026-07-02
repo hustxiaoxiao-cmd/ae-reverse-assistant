@@ -18,10 +18,6 @@ export class KnowledgeStore {
         this.cacheFilePath = cacheFilePath || path.join(process.cwd(), '.cache', 'vector-index.json');
     }
 
-    getKnowledgeStore(): KnowledgeStore {
-        return this;
-    }
-
     getVectorStore(): VectorStore {
         return this.vectorStore;
     }
